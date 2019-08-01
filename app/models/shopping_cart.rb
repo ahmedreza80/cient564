@@ -9,8 +9,9 @@ class ShoppingCart
   def order
     @order ||= Order.find_or_create_by(token: @token, status: 'cart') do |order|
       order.sub_total = 0
-      order.user_id = @user.id
+      
     end
+    order.user_id = @user.id
   end
 
   def items_count
