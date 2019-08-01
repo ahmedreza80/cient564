@@ -1,0 +1,62 @@
+
+<div class="container" style=" text-align:center; padding-top: 100px">
+	<div class="center" style="text-align:center;">
+  <h1>All Shops In Your City/District</h1>
+</div>
+<hr>
+  <div class="row">
+                <% @shops.each do |shop| %>
+        <% if shop.city == current_or_guest_user.search_city %>
+                <div class="col-md-4">
+  <figure class="card card-product">
+    <div class="img-wrap"><img src="<%= shop.imageshop %>" style="width:300px; height:250px;"></div>
+    <figcaption class="info-wrap">
+        <h4 class="title"><a href="#"><%= shop.name %></a></h4>
+        <p class="desc"><%= shop.description %></p>
+        <div class="rating-wrap">
+          <div class="label-rating">Category: <%= shop.category %></div>
+          
+        </div> <!-- rating-wrap.// -->
+    </figcaption>
+    <div class="bottom-wrap">
+      <%= link_to "View Shop", shop, class: "btn btn-sm btn-primary float-right" %>
+    </div> <!-- bottom-wrap.// -->
+  </figure>
+</div> <!-- col // -->
+<% end %>
+<% end %>
+              </div>
+</div>
+
+
+<style>
+  .card-product .img-wrap {
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+    position: relative;
+    height: 150px;
+    text-align: center;
+}
+.card-product .img-wrap img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+.card-product .info-wrap {
+    overflow: hidden;
+    border-top: 1px solid #eee;
+}
+.card-product .bottom-wrap {
+    border-top: 1px solid #eee;
+}
+
+.label-rating { margin-right:10px;
+    color: #333;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.card-product .price-old {
+    color: #999;
+}
+</style>

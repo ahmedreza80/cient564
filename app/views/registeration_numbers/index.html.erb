@@ -1,0 +1,53 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+
+
+<div class="container" style="margin-top: 100px">
+	<h3 style="text-align:center;">Generate Shop Code</h3>
+	<br>
+	<br>
+</div>	
+
+
+
+<br>
+<br>
+
+<div class="container">
+  <% @numbers.each.with_index(1) do |number,i| %>
+		
+	<% end %>          
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Registration Numbers</th>
+        <th>New Code</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><% @numbers.each.with_index(1) do |number,i| %>
+		<a href="<%=registeration_number_orders_path(number.id)%>"><p><%= i %>. <%= number.code %></p></a>
+		<hr>	
+	<% end %>
+        <td><%= form_with(model: RegisterationNumber.new, local: true) do |form| %>
+	 
+	  <div class="actions">
+	    <%= form.submit "Generate Code", style: 'font-size:20px;'%>
+      <br>
+      <br>
+      <a href="/highlights/new" class="btn-form text-centre" style="font-size:10px; color: #fff;">Add Highlights<i class="pe-7s-angle-right"></i></a>
+	  </div>
+	<% end %></td>
+        
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+

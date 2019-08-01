@@ -1,0 +1,1237 @@
+<%= render 'welcome/sub' %>
+<br>
+<br>
+<br>
+<!doctype html>
+<html lang="en">
+
+    <body>
+      <% if @shop.status == "Disable" %>
+      <div class="well">
+        <div class="text-center">
+          <h3><b>This Shop is Unaccesiable</b></h3>
+          <p>You can't access this shop right now as it has been disabled temporarily by the management. If you are the shop owner please <a href="/welcome/contact">contact us.</a></p>
+        </div>
+      </div>
+      <% else %>
+      
+        <style>
+
+/* Three column layout */
+.side {
+  float: left;
+  width: 15%;
+  margin-top:10px;
+}
+
+.middle {
+  margin-top:10px;
+  float: left;
+  width: 70%;
+}
+
+/* Place text to the right */
+.right {
+  text-align: right;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The bar container */
+.bar-container {
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+}
+
+/* Individual bars */
+.bar-5 {width: 60%; height: 18px; background-color: #4CAF50;}
+.bar-4 {width: 30%; height: 18px; background-color: #2196F3;}
+.bar-3 {width: 10%; height: 18px; background-color: #00bcd4;}
+.bar-2 {width: 4%; height: 18px; background-color: #ff9800;}
+.bar-1 {width: 15%; height: 18px; background-color: #f44336;}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+  .side, .middle {
+    width: 100%;
+  }
+  .right {
+    display: none;
+  }
+}
+
+
+/*font Awesome http://fontawesome.io*/
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+/*Comment List styles*/
+.comment-list .row {
+  margin-bottom: 0px;
+}
+.comment-list .panel .panel-heading {
+  padding: 4px 15px;
+  position: absolute;
+  border:none;
+  /*Panel-heading border radius*/
+  border-top-right-radius:0px;
+  top: 1px;
+}
+.comment-list .panel .panel-heading.right {
+  border-right-width: 0px;
+  /*Panel-heading border radius*/
+  border-top-left-radius:0px;
+  right: 16px;
+}
+.comment-list .panel .panel-heading .panel-body {
+  padding-top: 6px;
+}
+.comment-list figcaption {
+  /*For wrapping text in thumbnail*/
+  word-wrap: break-word;
+}
+/* Portrait tablets and medium desktops */
+@media (min-width: 768px) {
+  .comment-list .arrow:after, .comment-list .arrow:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent;
+  }
+  .comment-list .panel.arrow.left:after, .comment-list .panel.arrow.left:before {
+    border-left: 0;
+  }
+  /*****Left Arrow*****/
+  /*Outline effect style*/
+  .comment-list .panel.arrow.left:before {
+    left: 0px;
+    top: 30px;
+    /*Use boarder color of panel*/
+    border-right-color: inherit;
+    border-width: 16px;
+  }
+  /*Background color effect*/
+  .comment-list .panel.arrow.left:after {
+    left: 1px;
+    top: 31px;
+    /*Change for different outline color*/
+    border-right-color: #FFFFFF;
+    border-width: 15px;
+  }
+  /*****Right Arrow*****/
+  /*Outline effect style*/
+  .comment-list .panel.arrow.right:before {
+    right: -16px;
+    top: 30px;
+    /*Use boarder color of panel*/
+    border-left-color: inherit;
+    border-width: 16px;
+  }
+  /*Background color effect*/
+  .comment-list .panel.arrow.right:after {
+    right: -14px;
+    top: 31px;
+    /*Change for different outline color*/
+    border-left-color: #FFFFFF;
+    border-width: 15px;
+  }
+}
+.comment-list .comment-post {
+  margin-top: 6px;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+<style>
+  /***
+User Profile Sidebar by @keenthemes
+A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
+Licensed under MIT
+***/
+
+body {
+  background: #F1F3FA;
+}
+
+/* Profile container */
+.profile {
+  margin: 20px 0;
+}
+
+/* Profile sidebar */
+.profile-sidebar {
+  padding: 20px 0 10px 0;
+  background: #fff;
+}
+
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-usertitle-job {
+  text-transform: uppercase;
+  color: #5b9bd1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-userbuttons .btn {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 15px;
+  margin-right: 5px;
+}
+
+.profile-userbuttons .btn:last-child {
+  margin-right: 0px;
+}
+    
+.profile-usermenu {
+  margin-top: 30px;
+}
+
+.profile-usermenu ul li {
+  border-bottom: 1px solid #f0f4f7;
+}
+
+.profile-usermenu ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li a {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile-usermenu ul li a i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.profile-usermenu ul li a:hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+}
+
+.profile-usermenu ul li.active {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li.active a {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+}
+
+
+
+</style>
+
+<div class="container">
+    <div class="row profile">
+    <div class="col-md-3">
+      <div class="profile-sidebar">
+        <!-- SIDEBAR USERPIC -->
+        <div class="profile-userpic">
+          <img src="<%= @shop.imageshop %>" class="img-responsive" alt="">
+        </div>
+        <!-- END SIDEBAR USERPIC -->
+        <!-- SIDEBAR USER TITLE -->
+        <div class="profile-usertitle">
+          <div class="profile-usertitle-name">
+            <%= @shop.name %>
+          </div>
+          <div class="profile-usertitle-job">
+            <%= @shop.category %>
+          </div>
+          <div class="profile-usertitle-job">
+            <div class="star-rating" data-score= <%= @avg_review %> ></div>
+          <em><%= "#{@reviews.length} reviews" %></em>
+          </div>
+        </div>
+        <!-- END SIDEBAR USER TITLE -->
+        <!-- SIDEBAR BUTTONS -->
+        <div class="profile-userbuttons">
+          <% if user_signed_in? %>
+          <%= link_to "Message", converstions_path(sender_id: current_user.id, recipient_id: @shop.user.id), class:"btn btn-danger btn-sm", method: "post"%>
+          <% else %>
+         
+          <a href="/users/sign_in" style="color: #fff;" class="btn btn-danger btn-sm">Message</a>
+          <% end %>
+        </div>
+        <!-- END SIDEBAR BUTTONS -->
+        <!-- SIDEBAR MENU -->
+        <div class="profile-usermenu">
+          <ul class="nav">
+            <li class="active">
+              <a href="#" data-toggle="collapse" data-target="#demo">
+              <i class="glyphicon glyphicon-home"></i>
+              Overview </a>
+              <div id="demo" class="collapse">
+                <%= @shop.description %>
+              </div>
+            </li>
+            <li>
+              <a href="#">
+              <i class="glyphicon glyphicon-map-marker"></i>
+              <%= @shop.location %> </a>
+            </li>
+            <li>
+              <a href="#" target="_blank">
+              <i class="glyphicon glyphicon-envelope"></i>
+              <%= @shop.email %> </a>
+            </li>
+            <% if current_user == @shop.user %>
+          <%= link_to "Edit Your Shop", edit_shop_path(@shop) %>
+          <% end %>
+            <li>
+              <div class="dropdown">
+                <a href="#" type="button" data-toggle="dropdown">
+                  <i class="glyphicon glyphicon-flag"></i>More Info<span class="caret"></span> </a>
+                  <ul class="dropdown-menu">
+      <li><a href="#"><i class="glyphicon glyphicon-phone"></i>
+<%= @shop.phone %></a></li>
+      <li><a href="#"><i class="glyphicon glyphicon-calendar"></i>
+<%= @shop.operating_hours %></a></li>
+      <li><a href="#"><i class="glyphicon glyphicon-globe"></i>
+<%= @shop.web %></a></li>
+
+                    <li><a href="http://<%= @shop.facebook%>"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+
+                    <li><a href="http://<%= @shop.twitter%>"><i class="fab fa-twitter"></i>< Twitter</a></li>
+                    <li><a href="http://<%= @shop.linkedin%>"><i class="fab fa-linkedin-in"></i></i></i> Linkedin</a></li>
+
+    </ul>
+
+      
+
+  </div>
+            </li>
+            
+          </ul>
+        </div>
+        <!-- END MENU -->
+      </div>
+    </div>
+
+  </div>
+</div>
+
+        <!--================End Home Banner Area =================-->
+        <% if @shop.business == "Products Based Business" %>
+        <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-7 heading-section text-center">
+            <h2 class="mb-4">Products</h2>
+            <p>All the products listed here are directly sold by <%= @shop.name %> and NearClick is just there delivery partner, we deliver the product as it is without opening the package.</p>
+          </div>
+        </div>
+        
+
+              <div class="row" style="display: block;">
+  <% @shop.products.each do |product| %>
+      <div class="kya">
+<div class="card">
+<div class="product-widget">
+                  <div class="product-img">
+                    <img src="<%= product.image %>" alt="">
+                  </div>
+                  <div class="product-body">
+                    <p class="product-category"><%= product.category %></p>
+                    <h3 class="product-name"><a href="#"><%= product.name %></a></h3>
+                    <% if product.offerprice? %>
+                    <h4 class="product-price">₹.<%= product.offerprice %> <del class="product-old-price">₹.<%= product.price %></del></h4>
+                    <% else %>
+                    <h4 class="product-price">₹.<%= product.price %></h4>
+                    <% end %>
+                    <%= link_to "View Product", product, class: "btn btn-sm btn-primary float-right" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+    </div>
+          
+        
+      </div>
+    </section>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% if @shop.category == "Tutors" %>
+        <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-7 heading-section text-center">
+            <h2 class="mb-4">Subjects</h2>
+            <p>All the Subjects listed here are directly taught by <%= @shop.name %> and NearClick is just there Permotional partner.</p>
+          </div>
+        </div>
+        
+
+              <div class="row" style="display: block;">
+  <% @shop.products.each do |product| %>
+      <div class="kya">
+<div class="card">
+<div class="product-widget">
+                  <div class="product-img">
+                    <img src="<%= product.image %>" alt="">
+                  </div>
+                  <div class="product-body">
+                    <p class="product-category"><%= product.category %></p>
+                    <h3 class="product-name"><a href="#"><%= product.name %></a></h3>
+                    <% if product.offerprice? %>
+                    <h4 class="product-price">₹.<%= product.offerprice %> <del class="product-old-price">₹.<%= product.price %></del></h4>
+                    <% else %>
+                    <h4 class="product-price">₹.<%= product.price %></h4>
+                    <% end %>
+                    <%= link_to "View Product", product, class: "btn btn-sm btn-primary float-right" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+    </div>
+          
+        
+      </div>
+    </section>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% if @shop.category == "Business & Tax" %>
+        <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-7 heading-section text-center">
+            <h2 class="mb-4">Services</h2>
+            <p>All the Services listed here are directly Provided by <%= @shop.name %> and NearClick is just there Permotional partner.</p>
+          </div>
+        </div>
+        
+
+              <div class="row" style="display: block;">
+  <% @shop.products.each do |product| %>
+      <div class="kya">
+<div class="card">
+<div class="product-widget">
+                  <div class="product-img">
+                    <img src="<%= product.image %>" alt="">
+                  </div>
+                  <div class="product-body">
+                    <p class="product-category"><%= product.category %></p>
+                    <h3 class="product-name"><a href="#"><%= product.name %></a></h3>
+                    <% if product.offerprice? %>
+                    <h4 class="product-price">₹.<%= product.offerprice %> <del class="product-old-price">₹.<%= product.price %></del></h4>
+                    <% else %>
+                    <h4 class="product-price">₹.<%= product.price %></h4>
+                    <% end %>
+                    <%= link_to "View Product", product, class: "btn btn-sm btn-primary float-right" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+    </div>
+          
+        
+      </div>
+    </section>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% if @shop.category == "Salon" %>
+        <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-7 heading-section text-center">
+            <h2 class="mb-4">Services</h2>
+            <p>All the Services listed here are directly Provided by <%= @shop.name %> and NearClick is just there Permotional partner.</p>
+          </div>
+        </div>
+        
+
+              <div class="row" style="display: block;">
+  <% @shop.products.each do |product| %>
+      <div class="kya">
+<div class="card">
+<div class="product-widget">
+                  <div class="product-img">
+                    <img src="<%= product.image %>" alt="">
+                  </div>
+                  <div class="product-body">
+                    <p class="product-category"><%= product.category %></p>
+                    <h3 class="product-name"><a href="#"><%= product.name %></a></h3>
+                    <% if product.offerprice? %>
+                    <h4 class="product-price">₹.<%= product.offerprice %> <del class="product-old-price">₹.<%= product.price %></del></h4>
+                    <% else %>
+                    <h4 class="product-price">₹.<%= product.price %></h4>
+                    <% end %>
+                    <%= link_to "View Product", product, class: "btn btn-sm btn-primary float-right" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+    </div>
+          
+        
+      </div>
+    </section>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% if @shop.category == "Home Service & Repair" %>
+        <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-7 heading-section text-center">
+            <h2 class="mb-4">Services</h2>
+            <p>All the Services listed here are directly Provided by <%= @shop.name %> and NearClick is just there Permotional partner.</p>
+          </div>
+        </div>
+        
+
+              <div class="row" style="display: block;">
+  <% @shop.products.each do |product| %>
+      <div class="kya">
+<div class="card">
+<div class="product-widget">
+                  <div class="product-img">
+                    <img src="<%= product.image %>" alt="">
+                  </div>
+                  <div class="product-body">
+                    <p class="product-category"><%= product.category %></p>
+                    <h3 class="product-name"><a href="#"><%= product.name %></a></h3>
+                    <% if product.offerprice? %>
+                    <h4 class="product-price">₹.<%= product.offerprice %> <del class="product-old-price">₹.<%= product.price %></del></h4>
+                    <% else %>
+                    <h4 class="product-price">₹.<%= product.price %></h4>
+                    <% end %>
+                    <%= link_to "View Product", product, class: "btn btn-sm btn-primary float-right" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+    </div>
+          
+        
+      </div>
+    </section>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% if @shop.category == "Hotels" %>
+        <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-7 heading-section text-center">
+            <h2 class="mb-4">Rooms</h2>
+            <p>All the Rooms listed here are directly Provided by <%= @shop.name %> and NearClick is just there Permotional partner.</p>
+          </div>
+        </div>
+        
+
+              <div class="row" style="display: block;">
+  <% @shop.products.each do |product| %>
+      <div class="kya">
+<div class="card">
+<div class="product-widget">
+                  <div class="product-img">
+                    <img src="<%= product.image %>" alt="">
+                  </div>
+                  <div class="product-body">
+                    <p class="product-category"><%= product.category %></p>
+                    <h3 class="product-name"><a href="#"><%= product.name %></a></h3>
+                    <% if product.offerprice? %>
+                    <h4 class="product-price">₹.<%= product.offerprice %> <del class="product-old-price">₹.<%= product.price %></del></h4>
+                    <% else %>
+                    <h4 class="product-price">₹.<%= product.price %></h4>
+                    <% end %>
+                    <%= link_to "View Product", product, class: "btn btn-sm btn-primary float-right" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+    </div>
+          
+        
+      </div>
+    </section>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% if @shop.category == "Restraunts" %>
+        <section class="ftco-section" style="padding: 10px;">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-1">
+          <div class="col-md-7 heading-section text-center">
+            <h2 class="mb-4">Menu</h2>
+            <p>All the Food Items listed here are directly Provided by <%= @shop.name %> and NearClick is just there Delivery partner, we deliver the items as it is without opening the package.</p>
+          </div>
+        </div>
+        
+
+              <div class="row" style="display: block;">
+  <% @shop.products.each do |product| %>
+      <div class="kya">
+<div class="card">
+<div class="product-widget">
+                  <div class="product-img">
+                    <img src="<%= product.image %>" alt="">
+                  </div>
+                  <div class="product-body">
+                    <p class="product-category"><%= product.category %></p>
+                    <h3 class="product-name"><a href="#"><%= product.name %></a></h3>
+                    <% if product.offerprice? %>
+                    <h4 class="product-price">₹.<%= product.offerprice %> <del class="product-old-price">₹.<%= product.price %></del></h4>
+                    <% else %>
+                    <h4 class="product-price">₹.<%= product.price %></h4>
+                    <% end %>
+                    <%= link_to "View Product", product, class: "btn btn-sm btn-primary float-right" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+    </div>
+          
+        
+      </div>
+    </section>
+<% end %>
+<hr>
+
+
+<section class="welcome_area p_120" style="padding: 10px;">
+          <div class="container">
+            <div class="row welcome_inner">
+              <div class="col-lg-6">
+                <div class="welcome_text">
+                  <h4>About <%= @shop.name %></h4>
+                  <p><%= @shop.description %></p>
+                  <div class="row">
+                    
+                    <div class="col-md-12">
+                      <div class="wel_item">
+                        <i class="lnr lnr-star"></i> <i class="lnr lnr-star"></i> <i class="lnr lnr-star"></i>
+                        <h4><%= "#{@reviews.length}" %></h4>
+                        <p> <%= "#{@reviews.length}" %> User have reviewd this business.</p>
+                      </div>
+                    </div>
+                   
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <span class="heading">User Rating</span>
+<p> Rating based on <em><%= "#{@reviews.length} reviews" %></em>.</p>
+<hr style="border:3px solid #f1f1f1">
+
+
+<% if @reviews.blank? %>
+            <h3>No reviews just yet, would you like to add the first!</h3>
+            <%= link_to "Write Review",  new_shop_review_path(@shop), class: "btn btn-danger" %>
+          <% else %>
+          <%= link_to "Write Review",  new_shop_review_path(@shop), class: "btn btn-danger" %>
+          <br>
+          <br>
+            <% @reviews.each do |review| %>
+              <div class="col-md-10 col-sm-10">
+              <div class="panel panel-default arrow left">
+                <div class="panel-body">
+                  <header class="text-left">
+                    <div class="comment-user"><i class="fa fa-user"></i> Nearclick User</div>
+                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> <%= review.created_at.strftime("%B %d %Y, %l:%M%P") %></time>
+                  </header>
+                  <hr>
+                  <div class="comment-post">
+                    <p>
+                      <div class="reviews">
+                <div class="star-rating" data-score= <%= review.rating %> ></div>
+                <p><%= review.comment %></p>
+              </div>
+                    </p>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <% end %>
+            <% end %>
+
+
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </section>
+       <script>
+      $('.star-rating').raty({
+        path: '/assets/',
+        readOnly: true,
+        score: function() {
+              return $(this).attr('data-score');
+      }
+    });
+  </script> 
+       <% end %>
+    </body>
+</html>
+
+
+<style>
+/*=========================================================
+  06 -> PRODUCT
+===========================================================*/
+
+/*----------------------------*\
+  product
+\*----------------------------*/
+.card {
+  box-shadow: 0px 3px 40px 0 rgba(206, 205, 205, 0.5);
+
+}
+.kya {
+  padding-bottom: 10px;
+}
+.product {
+  position: relative;
+  margin: 15px 0px;
+  -webkit-box-shadow: 0px 0px 0px 0px #E4E7ED, 0px 0px 0px 1px #E4E7ED;
+  box-shadow: 0px 0px 0px 0px #E4E7ED, 0px 0px 0px 1px #E4E7ED;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.product:hover {
+  -webkit-box-shadow: 0px 0px 6px 0px #E4E7ED, 0px 0px 0px 2px #D10024;
+  box-shadow: 0px 0px 6px 0px #E4E7ED, 0px 0px 0px 2px #D10024;
+}
+
+.product .product-img {
+  position: relative;
+}
+
+.product .product-img>img {
+  width: 100%;
+}
+
+.product .product-img .product-label {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.product .product-img .product-label>span {
+  border: 2px solid;
+  padding: 2px 10px;
+  font-size: 12px;
+}
+
+.product .product-img .product-label>span.sale {
+  background-color: #FFF;
+  border-color: #D10024;
+  color: #D10024;
+}
+
+.product .product-img .product-label>span.new {
+  background-color: #D10024;
+  border-color: #D10024;
+  color: #FFF;
+}
+
+.product .product-body {
+  position: relative;
+  padding: 15px;
+  background-color: #FFF;
+  text-align: center;
+  z-index: 20;
+}
+
+.product .product-body .product-category {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #8D99AE;
+}
+
+.product .product-body .product-name {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.product .product-body .product-name>a {
+  font-weight: 700;
+}
+
+.product .product-body .product-name>a:hover, .product .product-body .product-name>a:focus {
+  color: #D10024;
+}
+
+.product .product-body .product-price {
+  color: #D10024;
+  font-size: 18px;
+}
+
+.product .product-body .product-price .product-old-price {
+  font-size: 70%;
+  font-weight: 400;
+  color: #8D99AE;
+}
+
+.product .product-body .product-rating {
+  position: relative;
+  margin: 15px 0px 10px;
+  height: 20px;
+}
+
+.product .product-body .product-rating>i {
+  position: relative;
+  width: 14px;
+  margin-right: -4px;
+  background: #FFF;
+  color: #E4E7ED;
+  z-index: 10;
+}
+
+.product .product-body .product-rating>i.fa-star {
+  color: #ef233c;
+}
+
+.product .product-body .product-rating:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  height: 1px;
+  background-color: #E4E7ED;
+}
+
+.product .product-body .product-btns>button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background: transparent;
+  border: none;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.product .product-body .product-btns>button:hover {
+  background-color: #E4E7ED;
+  color: #D10024;
+  border-radius: 50%;
+}
+
+.product .product-body .product-btns>button .tooltipp {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -15px);
+  -ms-transform: translate(-50%, -15px);
+  transform: translate(-50%, -15px);
+  width: 150px;
+  padding: 10px;
+  font-size: 12px;
+  line-height: 10px;
+  background: #1e1f29;
+  color: #FFF;
+  text-transform: uppercase;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.product .product-body .product-btns>button:hover .tooltipp {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translate(-50%, -5px);
+  -ms-transform: translate(-50%, -5px);
+  transform: translate(-50%, -5px);
+}
+
+.product .add-to-cart {
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  padding: 15px;
+  background: #1e1f29;
+  text-align: center;
+  -webkit-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%);
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  z-index: 2;
+}
+
+.product:hover .add-to-cart {
+  -webkit-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
+}
+
+.product .add-to-cart .add-to-cart-btn {
+  position: relative;
+  border: 2px solid transparent;
+  height: 40px;
+  padding: 0 30px;
+  background-color: #ef233c;
+  color: #FFF;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 40px;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.product .add-to-cart .add-to-cart-btn>i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  line-height: 38px;
+  color: #D10024;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.product .add-to-cart .add-to-cart-btn:hover {
+  background-color: #FFF;
+  color: #D10024;
+  border-color: #D10024;
+  padding: 0px 30px 0px 50px;
+}
+
+.product .add-to-cart .add-to-cart-btn:hover>i {
+  opacity: 1;
+  visibility: visible;
+}
+
+/*----------------------------*\
+  Widget product
+\*----------------------------*/
+
+.product-widget {
+  position: relative;
+}
+
+.product-widget+.product-widget {
+  margin: 30px 0px;
+}
+
+.product-widget .product-img {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 60px;
+}
+
+.product-widget .product-img>img {
+  width: 120%;
+}
+
+.product-widget .product-body {
+  padding-left: 75px;
+  min-height: 60px;
+}
+
+.product-widget .product-body .product-category {
+  text-transform: uppercase;
+  font-size: 10px;
+  color: #8D99AE;
+}
+
+.product-widget .product-body .product-name {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.product-widget .product-body .product-name>a {
+  font-weight: 700;
+}
+
+.product-widget .product-body .product-name>a:hover, .product-widget .product-body .product-name>a:focus {
+  color: #D10024;
+}
+
+.product-widget .product-body .product-price {
+  font-size: 14px;
+  color: #D10024;
+}
+
+.product-widget .product-body .product-price .product-old-price {
+  font-size: 70%;
+  font-weight: 400;
+  color: #8D99AE;
+}
+
+.product-widget .product-body .product-price .qty {
+  font-weight: 400;
+  margin-right: 10px;
+}
+
+.product-widget .delete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 14px;
+  width: 14px;
+  text-align: center;
+  font-size: 10px;
+  padding: 0;
+  background: #1e1f29;
+  border: none;
+  color: #FFF;
+}
+
+/*----------------------------*\
+  Products slick
+\*----------------------------*/
+
+.products-slick .slick-list {
+  padding-bottom: 60px;
+  margin-bottom: -60px;
+  z-index: 2;
+}
+
+.products-slick .product.slick-slide {
+  margin: 15px;
+}
+
+.products-tabs>.tab-pane {
+  display: block;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: hidden;
+  padding-bottom: 60px;
+  margin-bottom: -60px;
+}
+
+.products-tabs>.tab-pane.active {
+  opacity: 1;
+  visibility: visible;
+  height: auto;
+}
+
+.products-slick-nav {
+  position: absolute;
+  right: 15px;
+  z-index: 10;
+}
+
+.products-slick-nav .slick-prev, .products-slick-nav .slick-next {
+  position: static;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+  width: 20px;
+  height: 20px;
+  display: inline-block !important;
+  margin: 0px 2px;
+}
+
+.products-slick-nav .slick-prev:before, .products-slick-nav .slick-next:before {
+  font-size: 14px;
+}
+</style>

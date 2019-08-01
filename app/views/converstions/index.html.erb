@@ -1,0 +1,187 @@
+
+
+<h2>Your orders</h2>
+<table class="table table-bordered">
+
+
+<% if @items&.present? %>
+<%@items&.each do |order|%>
+	<tr>
+	<td><%=order.product.name%></td>
+	<td><%=order.product.price%></td>
+	<td><%=order.product.shop.name%></td>
+	<td><%=order.product.category%></td>
+	<td><%=order.product.description%></td>
+	<td><%=order.product.brand%></td>
+	<td><%=order.product.ram%></td>
+	<td><%=order.product.storage%></td>
+	<td><%=order.product.offerprice%></td>
+
+	</tr>
+<%end%>
+<%else%>
+
+<%end%>
+</table>
+
+<p> </p>
+<p> </p>
+<p> </p>
+
+<p> </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet"
+
+</head>
+<body>
+<div class="container">
+<h3 class=" text-center">Messaging</h3>
+<div class="messaging">
+      <div class="inbox_msg">
+        <div class="inbox_people">
+          <div class="headind_srch">
+            <div class="recent_heading">
+              <h4>All Conversations</h4>
+            </div>
+          </div>
+          <div class="inbox_chat">
+            <div class="chat_list active_chat">
+            	<%@converstions.each do |converstion|%>
+	<% if converstion.sender_id == current_user.id || converstion.recipient_id == current_user.id%>
+	<% if converstion.sender_id == current_user.id%>
+	<% recipient = User.find(converstion.recipient_id)%>
+	<%else%>
+	<% sender = User.find(converstion.sender_id)%>
+	<%end%>
+              <div class="chat_people">
+                <div class="chat_img"> <img src="https://image.flaticon.com/icons/png/512/149/149071.png" alt="sunil"> </div>
+                <div class="chat_ib">
+                	<% if recipient&.shop.present? %>
+                  <h5><h3><%= link_to recipient&.shop.name , converstion_messages_path(converstion)%></h3> <span class="chat_date"><%= localize(converstion.created_at, :format => :long) %></span></h5>
+                  <% else %>
+
+                  <h5><h3><%= link_to sender&.username , converstion_messages_path(converstion)%></h3> <span class="chat_date"><%= localize(converstion.created_at, :format => :long) %></span></h5>
+                  <% end %>
+                </div>
+              </div>
+              <div class="bobo">
+<%= link_to "Open", converstion_messages_path(converstion), {:style=>'color:#FFFFFF;', :class => "btn btn-success"}%>
+	</div>
+	<hr>
+	<%end%>
+	<%end%>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+      
+    </div></div>
+    </body>
+    </html>
+<style>
+	
+img{ max-width:100%;}
+.inbox_people {
+  background: #f8f8f8 none repeat scroll 0 0;
+  float: left;
+  overflow: hidden;
+  width: 100%; border-right:1px solid #c4c4c4;
+}
+.inbox_msg {
+  border: 1px solid #c4c4c4;
+  clear: both;
+  overflow: hidden;
+}
+.bobo {
+	float: center;
+	text-align: center;
+}
+.top_spac{ margin: 20px 0 0;}
+
+
+
+.srch_bar {
+  display: inline-block;
+  text-align: right;
+  width: 60%; padding:
+}
+.headind_srch{ padding:10px 29px 10px 20px; overflow:hidden; border-bottom:1px solid #c4c4c4;}
+
+.recent_heading h4 {
+  color: #05728f;
+  font-size: 21px;
+  margin: auto;
+}
+.srch_bar input{ border:1px solid #cdcdcd; border-width:0 0 1px 0; width:80%; padding:2px 0 4px 6px; background:none;}
+.srch_bar .input-group-addon button {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  padding: 0;
+  color: #707070;
+  font-size: 18px;
+}
+.srch_bar .input-group-addon { margin: 0 0 0 -27px;}
+
+.chat_ib h5{ font-size:15px; color:#464646; margin:0 0 8px 0;}
+.chat_ib h5 span{ font-size:13px; float:right;}
+.chat_ib p{ font-size:14px; color:#989898; margin:auto}
+.chat_img {
+  float: left;
+  width: 11%;
+}
+.chat_ib {
+  float: left;
+  padding: 0 0 0 15px;
+  width: 88%;
+}
+
+</style>

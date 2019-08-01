@@ -1,0 +1,314 @@
+<!doctype html>
+<html>
+<head>
+<title>Shipment Track Widget Flat Responsive Widget Template :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Shipment Track Widget Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href="/assets/tro.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="/assets/tro.css" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+<body>
+	<br>
+	<% if @order.tracking == "Agent Recived Your Order" %>
+<div class="content">
+	<div class="content1">
+		<h2>Order Details</h2>
+	</div>
+	<div class="content2">
+		<%if @order.first_name and @order.last_name%>
+			<div class="content2-header1">
+				<p>Name : <span><%= @order.first_name %> <%= @order.last_name %> </span></p>
+			</div>
+		<%end%>
+		<%if @order.mobile_number %>
+		<div class="content2-header1">
+			<p>Contact Number : <span><%= @order.mobile_number%></span></p>
+		</div>
+		<%end%>
+		<%if @order.email %>		
+		<div class="content2-header1">
+			<p>Email : <span><%= @order.email%></span></p>
+		</div>
+		<%end%>
+		<%if @order.tracking %>				
+		<div class="content2-header1">
+			<p>Tracking status : <span><%= @order.tracking%></span></p>
+		</div>
+		<%end%>
+		<%if @order.created_at %>				
+		<div class="content2-header1">
+			<p>Order Placed Date : <span><%= @order.created_at%></span></p>
+		</div>
+		<%end%>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="header">
+	<h1>Order Track</h1>
+</div>
+<div class="content">
+	<div class="content1">
+		<h2>Order Tracking: Order No: <%= params[:order_number] if params[:order_number]%></h2>
+	</div>
+	<div class="content2">
+		<div class="content2-header1">
+			<p>Shipped Via : <span>Nearclcik Agent</span></p>
+		</div>
+		<div class="content2-header1">
+			<p>Status : <span><%= @order.tracking %></span></p>
+		</div>
+		<div class="content2-header1">
+			<p>Order Price : <span><%= @order.total %></span></p>
+		</div>
+
+		<div class="clear"></div>
+	</div>
+	
+	
+</div>
+<% end %>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% if @order.tracking == "Agent is on his way" %>
+	<div class="content">
+	<div class="content1">
+		<h2>Order Details</h2>
+	</div>
+	<div class="content2">
+		<%if @order.first_name and @order.last_name%>
+			<div class="content2-header1">
+				<p>Name : <span><%= @order.first_name %> <%= @order.last_name %> </span></p>
+			</div>
+		<%end%>
+		<%if @order.mobile_number %>
+		<div class="content2-header1">
+			<p>Contact Number : <span><%= @order.mobile_number%></span></p>
+		</div>
+		<%end%>
+		<%if @order.email %>		
+		<div class="content2-header1">
+			<p>Email : <span><%= @order.email%></span></p>
+		</div>
+		<%end%>
+		<%if @order.tracking %>				
+		<div class="content2-header1">
+			<p>Tracking status : <span><%= @order.tracking%></span></p>
+		</div>
+		<%end%>
+		<%if @order.created_at %>				
+		<div class="content2-header1">
+			<p>Order Placed Date : <span><%= @order.created_at%></span></p>
+		</div>
+		<%end%>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="header">
+	<h1>Shipment Track</h1>
+</div>
+<div class="content">
+	<div class="content1">
+		<h2>Order Tracking: Order No: <%= params[:order_number] if params[:order_number]%></h2>
+	</div>
+	<div class="content2">
+		<div class="content2-header1">
+			<p>Shipped Via : <span>Nearclick Agent</span></p>
+		</div>
+		<div class="content2-header1">
+			<p>Status : <span><%= @order.tracking %></span></p>
+		</div>
+		<div class="content2-header1">
+			<p>Order Price : <span><%= @order.total %></span></p>
+
+		</div>
+
+		<div class="clear"></div>
+	</div>
+	
+	</div>
+		<% end %>
+
+
+
+
+
+
+
+		<% if @order.tracking == "Your order is canceled please contact support" %>
+	<div class="content">
+	<div class="content1">
+		<h2>Order Details</h2>
+	</div>
+	<div class="content2">
+		<%if @order.first_name and @order.last_name%>
+			<div class="content2-header1">
+				<p>Name : <span><%= @order.first_name %> <%= @order.last_name %> </span></p>
+			</div>
+		<%end%>
+		<%if @order.mobile_number %>
+		<div class="content2-header1">
+			<p>Contact Number : <span><%= @order.mobile_number%></span></p>
+		</div>
+		<%end%>
+		<%if @order.email %>		
+		<div class="content2-header1">
+			<p>Email : <span><%= @order.email%></span></p>
+		</div>
+		<%end%>
+		<%if @order.tracking %>				
+		<div class="content2-header1">
+			<p>Tracking status : <span><%= @order.tracking%></span></p>
+		</div>
+		<%end%>
+		<%if @order.created_at %>				
+		<div class="content2-header1">
+			<p>Order Placed Date : <span><%= @order.created_at%></span></p>
+		</div>
+		<%end%>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="header">
+	<h1>Shipment Track</h1>
+</div>
+<div class="content">
+	<div class="content1">
+		<h2>Order Tracking: Order No: <%= params[:order_number] if params[:order_number]%></h2>
+	</div>
+	<div class="content2">
+		<div class="content2-header1">
+			<p>Shipped Via : <span>Nearclick Agent</span></p>
+		</div>
+		<div class="content2-header1">
+			<p>Status : <span><%= @order.tracking %></span></p>
+		</div>
+		<div class="content2-header1">
+			<p>Order Price : <span><%= @order.total %></span></p>
+
+		</div>
+
+		<div class="clear"></div>
+	</div>
+	
+</div>
+		<% end %>
+
+
+
+
+
+
+
+
+
+		<% if @order.tracking == "Order
+Delivered" %>
+	<div class="content">
+	<div class="content1">
+		<h2>Order Details</h2>
+	</div>
+	<div class="content2">
+		<%if @order.first_name and @order.last_name%>
+			<div class="content2-header1">
+				<p>Name : <span><%= @order.first_name %> <%= @order.last_name %> </span></p>
+			</div>
+		<%end%>
+		<%if @order.mobile_number %>
+		<div class="content2-header1">
+			<p>Contact Number : <span><%= @order.mobile_number%></span></p>
+		</div>
+		<%end%>
+		<%if @order.email %>		
+		<div class="content2-header1">
+			<p>Email : <span><%= @order.email%></span></p>
+		</div>
+		<%end%>
+		<%if @order.tracking %>				
+		<div class="content2-header1">
+			<p>Tracking status : <span><%= @order.tracking%></span></p>
+		</div>
+		<%end%>
+		<%if @order.created_at %>				
+		<div class="content2-header1">
+			<p>Order Placed Date : <span><%= @order.created_at%></span></p>
+		</div>
+		<%end%>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="header">
+	<h1>Shipment Track</h1>
+</div>
+<div class="content">
+	<div class="content1">
+		<h2>Order Tracking: Order No: <%= params[:order_number] if params[:order_number]%></h2>
+	</div>
+	<div class="content2">
+		<div class="content2-header1">
+			<p>Shipped Via : <span>Nearclick Agent</span></p>
+		</div>
+		<div class="content2-header1">
+			<p>Status : <span><%= @order.tracking %></span></p>
+		</div>
+		<div class="content2-header1">
+			<p>Order Price : <span><%= @order.total %></span></p>
+
+		</div>
+
+		<div class="clear"></div>
+	</div>
+	
+	
+</div>
+		<% end %>
+
+
+
+

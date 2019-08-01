@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nearnew</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application' %>
+    <%= javascript_include_tag 'application' %>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="/assets/jquery.raty.js"></script>
+    
+    
+    <% unless controller_name == "registeration_numbers" %>
+    <% if mobile_device == "mobile" %>
+    <style>
+      body {
+        background: #F9F9FA;
+      }
+    </style>
+    <script src="/assets/jquery.raty.js"></script>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<%= render 'welcome/sub' %>
+<% end %>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <% end %>
+  </head>
+<style>
+      body {
+        background: #F9F9FA;
+      }
+    </style>
+  <body>
+    <%= render 'layouts/header' %>
+    <% if notice %>
+    <br>
+    <br>
+    <br>
+    <br>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+<br>
+    <br>
+    <br>
+    <br>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+  </body>
+</html>
+ 
+

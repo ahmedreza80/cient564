@@ -1,0 +1,147 @@
+
+
+
+<table class="table table-bordered">
+
+
+<% if @items.present? %>
+<%@items&.each do |order|%>
+	<tr>
+	<td><%=order.product.name%></td>
+	<td><%=order.product.price%></td>
+	<td><%=order.product.shop.name%></td>
+	<td><%=order.product.category%></td>
+	<td><%=order.product.description%></td>
+	<td><%=order.product.brand%></td>
+	<td><%=order.product.ram%></td>
+	<td><%=order.product.storage%></td>
+	<td><%=order.product.offerprice%></td>
+
+	</tr>
+<%end%>
+<%else%>
+
+<%end%>
+</table>
+
+
+<body>
+
+<h2>Chat Messages</h2>
+<% @messages.each do |message|%>
+<div class="bokaro">
+	<% if message.body %>
+	<% user = User.find(message.user_id)%>
+  <img src="https://image.flaticon.com/icons/png/512/149/149071.png" alt="Avatar" style="width:100%;">
+  <p><strong><%= user.username%></strong></p>
+  <p><%= message.body%></p>
+  <span class="time-right"><%= message.message_time%></span>
+  <%end%>
+</div>
+<%end%>
+
+<%= form_for [@converstion,@message] do |f|%>
+<section class="home-newsletter">
+<div class="container">
+<div class="row">
+<div class="col-sm-12">
+	<div class="single">
+
+	<div class="input-group">
+         
+         <%= f.text_area :body, class:"form-control", placeholder:"Enter Your Message"%>
+         <br>
+         <br>
+         <%= f.hidden_field :user_id, value:current_user.id%>
+	
+
+         
+          </div>
+	</div>
+	<span class="input-group-btn" style="text-align: center;">
+		<%= f.submit "Send Reply", class:"btn"%>
+	</span>
+</div>
+</div>
+</div>
+</section>
+<%end%>
+</body>
+
+
+
+<style>
+
+.bokaro {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+
+
+
+
+.home-newsletter .single {
+max-width: 650px;
+margin: 0 auto;
+text-align: center;
+
+z-index: 2; }
+.home-newsletter .single h2 {
+font-size: 22px;
+color: white;
+text-transform: uppercase;
+margin-bottom: 40px; }
+.home-newsletter .single .form-control {
+height: 50px;
+width: 300px;
+background: rgba(255, 255, 255, 0.6);
+border-color: transparent;
+border-radius: 20px 0 0 20px; }
+.home-newsletter .single .form-control:focus {
+box-shadow: none;
+border-color: #243c4f; }
+.btn {
+min-height: 50px; 
+border-radius: 0 20px 20px 0;
+background: #243c4f;
+color: #fff;
+}
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+.bokaro::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.bokaro img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.bokaro img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
+}
+</style>

@@ -1,0 +1,1322 @@
+<% unless current_or_guest_user.search_area? %>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h4 class="modal-title">Add location first</h4>
+        </div>
+        <div class="modal-body">
+          <p>Its seems you haven't added your location yet, Nearclick is better with your current location.</p>
+          <a href="/welcome/home" class="btn-form">Add Location Now<i class="pe-7s-angle-right"></i></a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#myModal').modal('show');
+    });
+</script>
+<% end %>
+<% if mobile_device == "mobile" %>
+<% unless current_or_guest_user.search_area? %>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h4 class="modal-title">Add location first</h4>
+        </div>
+        <div class="modal-body">
+          <p>Its seems you haven't added your location yet, Nearclick is better with your current location.</p>
+          <a href="/welcome/home" class="btn-form">Add Location Now<i class="pe-7s-angle-right"></i></a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#myModal').modal('show');
+    });
+</script>
+<% end %><%= render 'welcome/sub' %>
+<br>
+<hr>
+<div class="s010">
+      <form>
+        <div class="inner-form">
+          <div class="basic-search">
+            <div class="input-field">
+              <input id="search" type="text" placeholder="Search Anything" id="search" />
+              <div class="icon-wrap">
+                <a href="/welcome/search" class="search-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+              </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <style>
+    .s010 {
+  height: 60px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  background: #252A33;
+  padding-top: 10px;
+  font-family: 'Lato', sans-serif;
+}
+
+.s010 form {
+  width: 100%;
+  max-width: 790px;
+  margin: 0;
+}
+
+.s010 form .inner-form {
+  width: 100%;
+}
+
+.s010 form .inner-form .input-field {
+  position: relative;
+}
+
+.s010 form .inner-form .input-field input {
+  height: 100%;
+  border: 0;
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  height: 35px;
+  color: #fff;
+  background: linear-gradient(to right, #2c6dd5 0%, #2c6dd5 28%, #ff4b5a 91%, #ff4b5a 100%);
+  font-family: 'Lato', sans-serif;
+}
+
+.s010 form .inner-form .input-field input.placeholder {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.s010 form .inner-form .input-field input:-moz-placeholder {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.s010 form .inner-form .input-field input::-webkit-input-placeholder {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.s010 form .inner-form .input-field input:hover, .s010 form .inner-form .input-field input:focus {
+  box-shadow: none;
+  outline: 0;
+}
+
+.s010 form .inner-form .input-field .btn-search {
+  min-width: 100px;
+  height: 40px;
+  padding: 0 15px;
+  background: linear-gradient(to right, #2c6dd5 0%, #2c6dd5 28%, #ff4b5a 91%, #ff4b5a 100%);
+  white-space: nowrap;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #fff;
+  transition: all .2s ease-out, color .2s ease-out;
+  border: 0;
+  cursor: pointer;
+  font-weight: 400;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+  z-index: 0;
+  position: relative;
+}
+
+.s010 form .inner-form .input-field .btn-search:before {
+  border-radius: inherit;
+  background: linear-gradient(45deg, #ff4b5a 0%, #ff4b5a 28%, #2c6dd5 91%, #2c6dd5 100%);
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  z-index: -1;
+  transition: all .2s ease-out, color .2s ease-out;
+}
+
+.s010 form .inner-form .input-field .btn-search:hover::before {
+  opacity: 1;
+}
+
+.s010 form .inner-form .input-field .btn-search:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.s010 form .inner-form .input-field .btn-delete {
+  min-width: 100px;
+  height: 40px;
+  padding: 0 15px;
+  background: transparent;
+  white-space: nowrap;
+  border-radius: 0;
+  font-size: 14px;
+  color: #666;
+  transition: all .2s ease-out, color .2s ease-out;
+  border: 0;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.s010 form .inner-form .input-field .btn-delete:hover, .s010 form .inner-form .input-field .btn-delete:focus {
+  color: #000;
+  outline: 0;
+  box-shadow: none;
+}
+
+.s010 form .inner-form .basic-search {
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  border-radius: 34px;
+  margin-bottom: 5px;
+}
+
+.s010 form .inner-form .basic-search .input-field {
+  width: 100%;
+}
+
+.s010 form .inner-form .basic-search .input-field input {
+  padding: 10px 80px 10px 40px;
+}
+
+.s010 form .inner-form .basic-search .input-field .icon-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  width: 60px;
+  height: 100%;
+}
+
+.s010 form .inner-form .basic-search .input-field .icon-wrap svg {
+  width: 34px;
+  height: 34px;
+  fill: #fff;
+}
+
+.s010 form .inner-form .advance-search {
+  background: #fff;
+  padding: 40px;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.s010 form .inner-form .advance-search .desc {
+  font-size: 14px;
+  color: #555;
+  display: block;
+  margin-bottom: 26px;
+}
+
+.s010 form .inner-form .advance-search .row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center;
+  margin-bottom: 20px;
+}
+
+.s010 form .inner-form .advance-search .row.second {
+  margin-bottom: 46px;
+}
+
+.s010 form .inner-form .advance-search .row.third {
+  margin-bottom: 0;
+}
+
+.s010 form .inner-form .advance-search .row.third .input-field {
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center;
+}
+
+.s010 form .inner-form .advance-search .row.third .input-field .result-count {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  -ms-flex-align: center;
+      align-items: center;
+  width: 110px;
+  color: #999;
+  font-size: 14px;
+}
+
+.s010 form .inner-form .advance-search .row.third .input-field .result-count span {
+  color: #333;
+  padding-right: 5px;
+}
+
+.s010 form .inner-form .advance-search .input-field {
+  width: calc((100% - 40px) / 3);
+}
+
+.s010 form .inner-form .advance-search .input-select {
+  height: 40px;
+}
+
+.s010 form .inner-form .advance-search .choices__inner {
+  background: #ccc;
+  border-radius: 20px;
+  border: 0;
+  border: 0;
+  height: 100%;
+  color: #fff;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  padding: 0;
+  padding-right: 30px;
+  font-size: 14px;
+  min-height: 40px;
+}
+
+.s010 form .inner-form .advance-search .choices__inner .choices__list.choices__list--single {
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px 18px;
+  -ms-flex-align: center;
+      align-items: center;
+  height: 100%;
+}
+
+.s010 form .inner-form .advance-search .choices__inner .choices__item.choices__item--selectable.choices__placeholder {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  height: 100%;
+  opacity: 1;
+  color: #333;
+}
+
+.s010 form .inner-form .advance-search .choices__inner .choices__list--single .choices__item {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  height: 100%;
+  color: #fff;
+}
+
+.s010 form .inner-form .advance-search .choices__list.choices__list--dropdown {
+  border: 0;
+  background: #333;
+  padding: 10px 18px 20px 18px;
+  margin-top: 3px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+}
+
+.s010 form .inner-form .advance-search .choices__list.choices__list--dropdown .choices__item--selectable {
+  padding-right: 0;
+}
+
+.s010 form .inner-form .advance-search .choices__list--dropdown .choices__item--selectable.is-highlighted {
+  background: transparent;
+  color: #fff;
+}
+
+.s010 form .inner-form .advance-search .choices__list--dropdown .choices__item {
+  color: #ccc;
+  min-height: 20px;
+  padding: 8px 0;
+}
+
+.s010 form .inner-form .advance-search .choices[data-type*="select-one"]:after {
+  border: 0;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  transform: none;
+  opacity: 1;
+  right: 15px;
+  top: 4px;
+  background-size: 18px 18px;
+  background-position: right center;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='%23999' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+}
+
+.s010 form .inner-form .advance-search .choices[data-type*="select-one"].is-open:after {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='%23999' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z'/%3e%3c/svg%3e");
+}
+
+.s010 form .inner-form .advance-search .choices[data-type*="select-one"] .choices__button {
+  display: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.s010 form .inner-form .advance-search .choices.valid .choices__inner {
+  background: linear-gradient(to right, #2c6dd5 0%, #2c6dd5 28%, #ff4b5a 91%, #ff4b5a 100%);
+}
+
+.s010 form .inner-form .advance-search .choices.valid:after {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='%23fff' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z'/%3e%3c/svg%3e");
+}
+
+.s010 form .inner-form .advance-search .choices.valid.is-open:after {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='%23fff' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z'/%3e%3c/svg%3e");
+}
+
+@media screen and (max-width: 767px) {
+  .s010 form .inner-form .basic-search .input-field input {
+    padding: 10px 110px 10px 30px;
+  }
+  .s010 form .inner-form .basic-search .input-field .icon-wrap {
+    width: 80px;
+    -ms-flex-pack: center;
+        justify-content: center;
+  }
+  .s010 form .inner-form .basic-search .input-field .icon-wrap svg {
+    width: 30px;
+    height: 30px;
+  }
+  .s010 form .inner-form .advance-search {
+    padding: 40px 15px;
+  }
+  .s010 form .inner-form .advance-search .row {
+    display: block;
+  }
+  .s010 form .inner-form .advance-search .input-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+    </style>
+     <script>
+    $(".search-btn").on("click", function(e){
+          e.preventDefault()
+          var $this = $(this);
+          var $href = $this.attr("href");
+          var search = $("#search").val()
+          window.location = $href + '?search=' + search
+        })
+        $(".search-btn").on("click", function(e){
+          e.preventDefault()
+          var $this = $(this);
+          var $href = $this.attr("href");
+          var search = $("#search").val()
+          window.location = $href + '?search=' + search
+        })
+    </script>
+                                <% else %>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                 <% end %>
+
+
+
+
+<div id="myGroup">
+  <script>
+  var $myGroup = $('#myGroup');
+$myGroup.on('show.bs.collapse','.collapse', function() {
+    $myGroup.find('.collapse.in').collapse('hide');
+});
+  </script>
+  <style>
+  .btn {
+    padding-bottom: 4px;
+  }
+  </style>
+  <div class="center" style="text-align:center;">
+    <button type="button" class="btn btn-info"><a href="/welcome/fap">All Fashion Products</a></button>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">WOMEN"S CLOTHING</button>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo2">MEN"S CLOTHING</button>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo3">BAGS</button>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo4">Watches</button>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo5">ACESSORIES</button>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo6">WOMEN"S FOOTWEAR</button>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo7">MEN'S FOOTWEAR</button>
+</div>
+<br>
+<br>
+  
+  <div id="demo" class="collapse">
+<div class="container" style="background-color:#fff; text-align:center;">
+  <div class="row">
+    
+      <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+    <a href="/welcome/fa1">
+     <img src="../assets/fa1.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Saree</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa2">
+      <img src="../assets/fa2.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Kurta/Kurti</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa3">
+      <img src="../assets/fa3.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Salwar Suit</b></figcaption>
+  </a>
+    </div>
+  
+  </div>
+  <br>
+  <br>
+  <br>
+
+
+  <div class="row">
+    
+      <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+    <a href="/welcome/fa4">
+     <img src="../assets/fa4.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Blouse</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa5">
+      <img src="../assets/fa5.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Shirt</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa6">
+      <img src="../assets/fa6.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Top</b></figcaption>
+  </a>
+    </div>
+  
+  </div>
+    <br>
+  <br>
+  <br>
+
+
+  <div class="row">
+    
+      <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+    <a href="/welcome/fa7">
+     <img src="../assets/fa7.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Dupatta</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa8">
+      <img src="../assets/fa8.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Leggings</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa9">
+      <img src="../assets/fa9.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Jeans</b></figcaption>
+  </a>
+    </div>
+  
+  </div>
+    <br>
+  <br>
+  <br>
+
+
+   <div class="row">
+    
+      <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+    <a href="/welcome/fa10">
+     <img src="../assets/fa10.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Trousers</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa11">
+      <img src="../assets/fa11.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Joggers</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa12">
+      <img src="../assets/fa12.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Caps</b></figcaption>
+  </a>
+    </div>
+  
+  </div>
+    <br>
+  <br>
+  <br>
+
+
+  <div class="row">
+    
+      <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+    <a href="/welcome/fa13">
+     <img src="../assets/fa13.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Shorts</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa14">
+      <img src="../assets/fa14.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Lingerie</b></figcaption>
+  </a>
+    </div>
+  
+  </div>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div id="demo2" class="collapse">
+<div class="container" style="background-color:#fff; text-align:center;">
+  <div class="row">
+    
+      <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+    <a href="/welcome/fa15">
+     <img src="../assets/fa15.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Shirt</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa16">
+      <img src="../assets/fa16.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>T-Shirt</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa17">
+      <img src="../assets/fa17.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Sweatshirt</b></figcaption>
+  </a>
+    </div>
+  
+  </div>
+  <br>
+  <br>
+  <br>
+
+
+  <div class="row">
+    
+      <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+    <a href="/welcome/fa18">
+     <img src="../assets/fa18.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Coat</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa19">
+      <img src="../assets/fa19.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Blazer</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa20">
+      <img src="../assets/fa20.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Tie</b></figcaption>
+  </a>
+    </div>
+  
+  </div>
+
+
+  <br>
+  <br>
+  <br>
+
+
+
+  <div class="row">
+    
+      <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+    <a href="/welcome/fa21">
+     <img src="../assets/fa21.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Jeans</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa22">
+      <img src="../assets/fa22.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Trouser</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa23">
+      <img src="../assets/fa23.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Joggers</b></figcaption>
+  </a>
+    </div>
+  
+  </div>
+
+
+  <br>
+  <br>
+  <br>
+
+
+
+  <div class="row">
+    
+      <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+    <a href="/welcome/fa24">
+     <img src="../assets/fa24.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Loungwear</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa25">
+      <img src="../assets/fa25.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Short</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa26">
+      <img src="../assets/fa26.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Underwear</b></figcaption>
+  </a>
+    </div>
+  
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div id="demo3" class="collapse">
+<div class="container" style="background-color:#fff; text-align:center;">
+  <div class="row">
+    
+      <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+    <a href="/welcome/fa27">
+     <img src="../assets/fa27.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Handbag</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa28">
+      <img src="../assets/fa28.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Shoulder Bag</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa29">
+      <img src="../assets/fa29.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Travel Bag</b></figcaption>
+  </a>
+    </div>
+  
+  </div>
+  <br>
+  <br>
+  <br>
+
+
+  <div class="row">
+    
+      <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+    <a href="/welcome/fa30">
+     <img src="../assets/fa30.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Tote Bag</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa31">
+      <img src="../assets/fa31.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Sling Bag</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa32">
+      <img src="../assets/fa32.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Shipping Bag</b></figcaption>
+  </a>
+    </div>
+  
+  </div>
+
+
+
+  <br>
+  <br>
+  <br>
+
+
+  <div class="row">
+    
+      <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+    <a href="/welcome/fa33">
+     <img src="../assets/fa33.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Messenger Bag</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa34">
+      <img src="../assets/fa34.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Clutches</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa35">
+      <img src="../assets/fa35.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Wallets</b></figcaption>
+  </a>
+    </div>
+  
+  </div>
+
+
+
+    <br>
+  <br>
+  <br>
+
+
+  <div class="row">
+    
+      <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+    <a href="/welcome/fa36">
+     <img src="../assets/fa36.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Pouches</b></figcaption>
+  </a>
+    </div>
+  
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div id="demo4" class="collapse">
+<div class="container" style="background-color:#fff; text-align:center;">
+  <div class="row">
+    
+      <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+    <a href="/welcome/fa37">
+     <img src="../assets/fa37.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Womens</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa38">
+      <img src="../assets/fa38.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Mens</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa39">
+      <img src="../assets/fa39.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Sports</b></figcaption>
+  </a>
+    </div>
+  
+  </div>
+  <br>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div id="demo5" class="collapse">
+<div class="container" style="background-color:#fff; text-align:center;">
+  <div class="row">
+    
+      <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+    <a href="/welcome/fa40">
+     <img src="../assets/fa40.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Eye GLass</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa41">
+      <img src="../assets/fa41.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Sun GLasses</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa42">
+      <img src="../assets/fa42.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Caps</b></figcaption>
+  </a>
+    </div>
+  
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div id="demo6" class="collapse">
+<div class="container" style="background-color:#fff; text-align:center;">
+  <div class="row">
+    
+      <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+    <a href="/welcome/fa43">
+     <img src="../assets/fa43.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Heals</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa44">
+      <img src="../assets/fa44.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Sandels</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa45">
+      <img src="../assets/fa45.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Flip FLops</b></figcaption>
+  </a>
+    </div>
+  
+  </div>
+  <br>
+  <br>
+  <br>
+
+
+  <div class="row">
+    
+      <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+    <a href="/welcome/fa46">
+     <img src="../assets/fa46.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Slippers</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa47">
+      <img src="../assets/fa47.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Sport Shoes</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa48">
+      <img src="../assets/fa48.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Mojaris</b></figcaption>
+  </a>
+    </div>
+  
+  </div>
+
+
+
+  <br>
+  <br>
+  <br>
+
+
+  <div class="row">
+    
+      <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+    <a href="/welcome/fa49">
+     <img src="../assets/fa49.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Flats</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa50">
+      <img src="../assets/fa50.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Wedgs</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa51">
+      <img src="../assets/fa51.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Boots</b></figcaption>
+  </a>
+    </div>
+  
+  </div>
+
+
+  <br>
+  <br>
+  <br>
+
+
+  <div class="row">
+    
+      <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+    <a href="/welcome/fa52">
+     <img src="../assets/fa52.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Socks</b></figcaption>
+  </a>
+    </div>
+  
+
+</div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="demo7" class="collapse">
+<div class="container" style="background-color:#fff; text-align:center;">
+  <div class="row">
+    
+      <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+    <a href="/welcome/fa53">
+     <img src="../assets/fa53.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Casuals</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa54">
+      <img src="../assets/fa54.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Sandels</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa55">
+      <img src="../assets/fa55.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Flip Flops</b></figcaption>
+  </a>
+    </div>
+  
+  </div>
+  <br>
+  <br>
+  <br>
+
+
+  <div class="row">
+
+  <div class="col" style="padding-left:0px; padding-right:0px; text-align:center;">
+<a href="/welcome/fa56">
+     <img src="../assets/fa56.jpg" style="height:100px; width:100px;" alt="Park">
+     <figcaption><b>Slippers</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa57">
+      <img src="../assets/fa57.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Sports Shoes</b></figcaption>
+  </a>
+    </div>
+  
+    
+      <div class="col" style="padding-left:0px; padding-right:0px;">
+    <a href="/welcome/fa58">
+      <img src="../assets/fa58.jpg" style="height:100px; width:100px;" alt="Park">
+      <figcaption><b>Formals</b></figcaption>
+  </a>
+    </div>
+  
+  </div>
+
+</div>
+</div>
+</div>
