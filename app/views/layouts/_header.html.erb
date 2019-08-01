@@ -94,11 +94,18 @@ function closeNav() {
 
 
                             <img src="/assets/user.png"  onclick="openNav()" style="height:32px; width:32px;">
+                            <% if user_signed_in? %>
 
 <a href="#">
    
             <%= link_to pluralize(current_cart.items_count, ''), cart_path, class: "dot" %><img src="https://cdn4.iconfinder.com/data/icons/online-shopping-31/64/shopping-commerce-supermarket-cart-store-online-512.png" style="height:32px; width:32px;"  alt="ICON">
                            </a>
+                           <% else %>
+                           <a href="#">
+   
+            <img src="https://cdn4.iconfinder.com/data/icons/online-shopping-31/64/shopping-commerce-supermarket-cart-store-online-512.png" style="height:32px; width:32px;"  alt="ICON">
+                           </a>
+                           <% end %>
                             <a class="navbar-brand" style="font-size:20px;" href="/welcome/home">NearClick</a>
                             
                           <img src="/assets/mi.png" data-toggle="modal" data-target="#myModalse" style="height:32px; width:32px;">
