@@ -13,6 +13,7 @@ class User < ApplicationRecord
 	has_many :registeration_numbers
   acts_as_commontator
   acts_as_voter
+  acts_as_reader
 
   
   def is_agent?

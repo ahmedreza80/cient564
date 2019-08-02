@@ -4,6 +4,7 @@ class ConverstionsController < ApplicationController
 	def index
 		@users = User.all
 		@converstions = Converstion.all
+		@converstions = Converstion.order("created_at DESC")
 	end
 
 	def create

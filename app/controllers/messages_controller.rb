@@ -5,6 +5,11 @@ class MessagesController < ApplicationController
 
   def index
   	@messages = @converstion.messages
+    if @messages.last
+      if @messages.last.user_id != current_user.id
+        @messages.last.read = true;
+      end
+    end
   	@message = @converstion.messages.new
   end
 
