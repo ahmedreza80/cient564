@@ -30,52 +30,52 @@ class WelcomeController < ApplicationController
     @products = Product.all
   end
   def bt1
-  	@products = Product.all
+    @products = Product.all
   end
   def bt2
-  	@products = Product.all
+    @products = Product.all
   end
   def bt3
-  	@products = Product.all
+    @products = Product.all
   end
   def bt4
-  	@products = Product.all
+    @products = Product.all
   end
   def bt5
-  	@products = Product.all
+    @products = Product.all
   end
   def bt6
-  	@products = Product.all
+    @products = Product.all
   end
   def do1
-  	@products = Product.all
+    @products = Product.all
   end
   def do2
-  	@products = Product.all
+    @products = Product.all
   end
   def do3
-  	@products = Product.all
+    @products = Product.all
   end
   def do4
-  	@products = Product.all
+    @products = Product.all
   end
   def do5
-  	@products = Product.all
+    @products = Product.all
   end
   def do6
-  	@products = Product.all
+    @products = Product.all
   end
   def do7
-  	@products = Product.all
+    @products = Product.all
   end
   def do8
-  	@products = Product.all
+    @products = Product.all
   end
   def do9
-  	@products = Product.all
+    @products = Product.all
   end
   def do10
-  	@products = Product.all
+    @products = Product.all
   end
   def do11
     @products = Product.all
@@ -814,11 +814,7 @@ def hard1
     @shops = Shop.all
   end
   def ashop
-    search = params[:q] if params[:q].present?
-    @shops = Shop.where("name LIKE ? OR area LIKE ? OR city LIKE ? OR state LIKE ? OR category LIKE ?", "%#{search}%","%#{search}%","%#{search}%","%#{search}%", "%#{search}%") if params[:q].present?
-    unless @shops.present?
-       @shops = Shop.all
-     end 
+    @shops =Shop.all
   end
   def sshop
     @shops =Shop.all

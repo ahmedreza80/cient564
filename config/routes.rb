@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'agent/orders'
 
-  get 'search/index'
+
 
 
   get 'order_notification/create'

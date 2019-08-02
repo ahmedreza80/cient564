@@ -91,7 +91,7 @@ class ProductsController < ApplicationController
   def upvote
     @product = Product.find(params[:id])
     @product.upvote_from current_user
-    redirect_to :back
+    redirect_to @product
   end
 
   private
