@@ -2,7 +2,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"> 
-  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
 
 </head>
 <%= render 'welcome/sub' %>
@@ -93,7 +93,7 @@
           <% if current_user.liked? @product %>
           You Have added this product in your wishlist
           <% else %>
-          <%= link_to like_product_path(@product), method: :put do %>
+          <%= button_to like_product_path(@product), method: :put do %>
           Add to Wishlist
           <% end %>
           <% end %>
