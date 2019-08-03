@@ -295,7 +295,7 @@ body {
         <!-- SIDEBAR BUTTONS -->
         <div class="profile-userbuttons">
           <% if user_signed_in? %>
-          <%= link_to "Message", converstions_path(sender_id: current_user.id, recipient_id: @shop.user.id), class:"btn btn-danger btn-sm", method: "post"%>
+          <%= button_to "Message", converstions_path(sender_id: current_user.id, recipient_id: @shop.user.id), class:"btn btn-danger btn-sm", method: "post"%>
           <% else %>
          
           <a href="/users/sign_in" style="color: #fff;" class="btn btn-danger btn-sm">Message</a>
