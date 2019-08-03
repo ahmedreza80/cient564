@@ -212,15 +212,23 @@ body {
 .profile-userbuttons {
   text-align: center;
   margin-top: 10px;
+
 }
 
 .profile-userbuttons .btn {
   text-transform: uppercase;
   font-size: 11px;
   font-weight: 600;
-  padding: 6px 15px;
   margin-right: 5px;
 }
+
+
+.bobby {
+  float: right;
+}
+
+
+
 
 .profile-userbuttons .btn:last-child {
   margin-right: 0px;
@@ -295,12 +303,14 @@ body {
         <!-- SIDEBAR BUTTONS -->
         <div class="profile-userbuttons">
           <% if user_signed_in? %>
-          <%= button_to "Message", converstions_path(sender_id: current_user.id, recipient_id: @shop.user.id), class:"btn btn-danger btn-sm", method: "post"%>
+          <%= button_to "Message", converstions_path(sender_id: current_user.id, recipient_id: @shop.user.id), :style=>'float:right;', class:"btn btn-danger btn-sm", method: "post"%>
           <% else %>
          
           <a href="/users/sign_in" style="color: #fff;" class="btn btn-danger btn-sm">Message</a>
           <% end %>
         </div>
+        <br>
+        <br>
         <!-- END SIDEBAR BUTTONS -->
         <!-- SIDEBAR MENU -->
         <div class="profile-usermenu">
