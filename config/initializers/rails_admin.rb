@@ -10,7 +10,11 @@ RailsAdmin.config do |config|
 
   ## == Cancan ==
   # config.authorize_with :cancan
-
+config.model User do
+    list do
+      scopes [:verified]
+    end
+  end
   ## == Pundit ==
   # config.authorize_with :pundit
 
