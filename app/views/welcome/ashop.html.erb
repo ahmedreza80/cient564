@@ -61,6 +61,9 @@ function closeNav() {
 <hr>
   <div class="row">
                 <% @shops&.each do |shop| %>
+                <% if shop.state == current_or_guest_user.search_state %>
+                <% if shop.area == current_or_guest_user.search_area %>
+                <% if shop.city == current_or_guest_user.search_city %>
       
                 <div class="col-md-4">
   <figure class="card card-product">
@@ -78,6 +81,9 @@ function closeNav() {
     </div> <!-- bottom-wrap.// -->
   </figure>
 </div> <!-- col // -->
+<% end %>
+<% end %>
+<% end %>
 <% end %>
 
               </div>
