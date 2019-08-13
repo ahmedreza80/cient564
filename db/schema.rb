@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190802081029) do
+ActiveRecord::Schema.define(version: 20190813065133) do
 
   create_table "areas", force: :cascade do |t|
     t.string "name"
@@ -29,6 +29,19 @@ ActiveRecord::Schema.define(version: 20190802081029) do
     t.datetime "updated_at", null: false
     t.index ["rateable_type", "rateable_id"], name: "index_average_caches_on_rateable_type_and_rateable_id"
     t.index ["rater_id"], name: "index_average_caches_on_rater_id"
+  end
+
+  create_table "banners", force: :cascade do |t|
+    t.string "tittle"
+    t.string "image"
+    t.string "description"
+    t.string "date"
+    t.string "place"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "state"
+    t.string "city"
+    t.string "area"
   end
 
   create_table "cities", force: :cascade do |t|
@@ -362,6 +375,8 @@ ActiveRecord::Schema.define(version: 20190802081029) do
     t.string "gst"
     t.string "list"
     t.string "status"
+    t.string "imageshoptwo"
+    t.string "imageshopthree"
     t.index ["registeration_number_id"], name: "index_shops_on_registeration_number_id"
     t.index ["user_id"], name: "index_shops_on_user_id"
   end
@@ -409,6 +424,8 @@ ActiveRecord::Schema.define(version: 20190802081029) do
     t.text "search_city"
     t.text "search_area"
     t.boolean "guest", default: false
+    t.string "pp"
+    t.text "about"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

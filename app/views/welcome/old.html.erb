@@ -15,6 +15,7 @@
 
           <% @products.each do |product| %>
           <% if product.category == "Old Items" %>
+          <% if shop.area == current_or_guest_user.search_area %>
           <div class="col col-md-4 col-sm-6">
               <div class="product-grid" style="background:#f3f4f7;">
                 <div class="image">
@@ -38,6 +39,60 @@
                 </div>
               </div>
           </div>
+          <% else %>
+          <% if shop.state == current_or_guest_user.search_state %>
+          <div class="col col-md-4 col-sm-6">
+              <div class="product-grid" style="background:#f3f4f7;">
+                <div class="image">
+                    <img src= "<%= product.image %>" alt="<%= product.name %> 's image" style="height:200px;" class="img-fluid">
+                    <span class="overlay">
+                        <span class="product-details">
+                           <%= link_to "View Details", product, class: "linky" %>
+
+                        </span>
+                    </span>
+                </div>
+                <div class="product-discription py-3">
+                <h4 class="text-center"><%= product.name %></h4>
+                <p class="text-center"><small><%= product.description %></small></p>
+                <span class="product-price">
+                <p class="text-center" >Price: <%= product.price %></p>
+                </span>
+                </div>
+                <div class="product-btn py-2 text-center">
+                <%= link_to "Add To Cart", product, class: "btn btn-lg" %>
+                </div>
+              </div>
+          </div>
+          <% else %>
+          <% if shop.city == current_or_guest_user.search_city %>
+          <div class="col col-md-4 col-sm-6">
+              <div class="product-grid" style="background:#f3f4f7;">
+                <div class="image">
+                    <img src= "<%= product.image %>" alt="<%= product.name %> 's image" style="height:200px;" class="img-fluid">
+                    <span class="overlay">
+                        <span class="product-details">
+                           <%= link_to "View Details", product, class: "linky" %>
+
+                        </span>
+                    </span>
+                </div>
+                <div class="product-discription py-3">
+                <h4 class="text-center"><%= product.name %></h4>
+                <p class="text-center"><small><%= product.description %></small></p>
+                <span class="product-price">
+                <p class="text-center" >Price: <%= product.price %></p>
+                </span>
+                </div>
+                <div class="product-btn py-2 text-center">
+                <%= link_to "Add To Cart", product, class: "btn btn-lg" %>
+                </div>
+              </div>
+          </div>
+          <% else %>
+          <% end %>
+          <% end %>
+          <% end %>
           <% end %>
           <% end %>
 

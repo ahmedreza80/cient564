@@ -435,6 +435,7 @@ function closeNav() {
   <p style="text-align:center;">Welcome <%= current_user.username %></p>
   <a href="/"><i class="fa fa-home" aria-hidden="true" style="padding-right:15px;"></i>Home</a>
    <%= link_to fa_icon('sign-out-alt', text: "Sign Out"), destroy_user_session_path, method: :get %>
+   <%= link_to "My Profile", current_user %>
   <% else %>
   <p style="text-align:center;">Welcome Guest</p>
   <a href="/"><i class="fa fa-home" aria-hidden="true" style="padding-right:15px;"></i>Home</a>
@@ -451,6 +452,8 @@ function closeNav() {
 
   <% end %>
 <a href="/welcome/bookmarks"><i class="fas fa-gifts" aria-hidden="true" style="padding-right:15px;"></i>Wishlist</a>
+<a href="/welcome/favourite"><i class="fas fa-heart" aria-hidden="true" style="padding-right:15px;"></i>Favourite Shops</a>
+
     <% if current_user&.present? %>
    <%= link_to fa_icon('comment-dots', text: "My Inbox"), converstions_path %>
 <% end %>
@@ -611,6 +614,7 @@ function closeNav() {
   <p style="text-align:center;">Welcome <%= current_user.username %></p>
   <a href="/"><i class="fa fa-home" aria-hidden="true" style="padding-right:15px;"></i>Home</a>
    <%= link_to fa_icon('sign-out-alt', text: "Sign Out"), destroy_user_session_path, method: :get %>
+   <%= link_to "My Profile", current_user %>
   <% else %>
   <p style="text-align:center;">Welcome Guest</p>
   <a href="/"><i class="fa fa-home" aria-hidden="true" style="padding-right:15px;"></i>Home</a>
@@ -629,6 +633,7 @@ function closeNav() {
 
   <% end %>
  <a href="/welcome/bookmarks"><i class="fas fa-gifts" aria-hidden="true" style="padding-right:15px;"></i>Wishlist</a>
+  <a href="/welcome/favourite"><i class="fas fa-heart" aria-hidden="true" style="padding-right:15px;"></i>Favourite Shops</a>
    <% if current_user&.present? %>
    <%= link_to fa_icon('comment-dots', text: "My Inbox"), converstions_path %>
 <% end %>

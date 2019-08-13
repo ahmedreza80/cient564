@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :banners
   get 'agent/orders'
 
 
@@ -20,6 +21,9 @@ Rails.application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :shops do
+    member do
+      put "like" =>"shops#upvote"
+    end
   resources :comments, only: [:create, :index, :destroy]
   resources :reviews, except: [:show, :index]
   
@@ -68,6 +72,7 @@ end
   get 'welcome/decor'
   get 'welcome/sny'
   get 'welcome/bookmarks'
+  get 'welcome/favourite'
 
 
 
@@ -747,5 +752,5 @@ get 'welcome/cshop'
    get "/users/auth/twitter", to: "users#sign_in"
    get "/users/auth/google_oauth2", to: "users#sign_in"
    devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: "users/registrations" , sessions: "users/sessions"}
-
+   get 'users/:id' => 'users#show', as: :user
 end

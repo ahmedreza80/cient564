@@ -1,5 +1,7 @@
 class Shop < ApplicationRecord
 	mount_uploader :imageshop, ImageUploader
+  mount_uploader :imageshoptwo, ImageUploader
+  mount_uploader :imageshopthree, ImageUploader
   mount_uploader :list, ListUploader
 	belongs_to :user
 
@@ -8,7 +10,9 @@ class Shop < ApplicationRecord
 	has_many :comments, dependent: :destroy
   has_many :reviews
 	belongs_to :registeration_number, required: false
+  scope :similar_shops, ->(shop) { where("id != ? and category = ? and area = ?", shop.id, shop.category, shop.area) }
 	acts_as_commontable
+  acts_as_votable
 
 
 def status_enum

@@ -13,6 +13,7 @@ class ShopsController < ApplicationController
   # GET /shops/1.json
   def show
     @products = Product.all
+    @similar_shops = Shop.similar_shops(@shop)
     @reviews = Review.where(shop_id: @shop.id).order("created_at DESC")
 
     if @reviews.blank?
@@ -89,6 +90,13 @@ class ShopsController < ApplicationController
     end
   end
 
+
+  def upvote
+    @shop = Shop.find(params[:id])
+    @shop.upvote_from current_user
+    redirect_to @shop
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_shop
@@ -97,6 +105,6 @@ class ShopsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shop_params
-      params.require(:shop).permit(:name, :description, :imageshop, :location, :list, :gst, :web, :email, :facebook, :twitter, :linkedin, :operating_hours, :state, :city, :area, :phone, :business, :category, :status)
+      params.require(:shop).permit(:name, :description, :imageshop, :imageshoptwo, :imageshopthree, :location, :list, :gst, :web, :email, :facebook, :twitter, :linkedin, :operating_hours, :state, :city, :area, :phone, :business, :category, :status)
     end
 end

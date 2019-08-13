@@ -98,11 +98,11 @@ $(function() {
       <%= form.file_field :list, id: :shop_list, placeholder: "List all your services (if Restraunts then your Menu)" %>
     </div>
       <label>Please select a State:</label>
-      <%= form.select :state, options_for_select([["Select a state",""]] + State.all.map { |c| [c.name, c.id] },selected:  current_user.shop.state ), {}, id: "state", :required => true%>
+      <%= form.select :state, options_for_select([["Select a state",""]] + State.all.map { |c| [c.name, c.id] }.sort,selected:  current_user.shop.state ), {}, id: "state", :required => true%>
       <label>Please select a District:</label>
-      <%= form.select :city, options_for_select([["Select a City",""]] + City.all.map { |c| [c.name, c.id] },selected:  current_user.shop.city ),{}, :id => 'city' %>
+      <%= form.select :city, options_for_select([["Select a City",""]] + City.all.map { |c| [c.name, c.id] }.sort,selected:  current_user.shop.city ),{}, :id => 'city' %>
       <label>Please select an Area:</label>
-      <%= form.select :area, options_for_select([["Select an Area",""]] + Area.all.map { |c| [c.name, c.id] },selected:  current_user.shop.area ),{}, :id => 'area' %>
+      <%= form.select :area, options_for_select([["Select an Area",""]] + Area.all.map { |c| [c.name, c.id] }.sort,selected:  current_user.shop.area ),{}, :id => 'area' %>
 
     </fieldset>
     <fieldset>
@@ -115,8 +115,10 @@ $(function() {
       <%= form.text_field :phone, id: :shop_phone, :required => true %><br>
       <label for="password">Description:</label>
       <%= form.text_area :description, id: :shop_description, :required => true %>
-      <label>Image:</label>
+      <label>Images:</label>
       <%= form.file_field :imageshop, id: :shop_imageshop %>
+      <%= form.file_field :imageshoptwo, id: :shop_imageshoptwo %>
+      <%= form.file_field :imageshopthree, id: :shop_imageshopthree %>
        <label for="job">Website:</label>
       <%= form.text_field :web, id: :shop_web %>
 

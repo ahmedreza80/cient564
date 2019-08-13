@@ -7,9 +7,13 @@ class WelcomeController < ApplicationController
 
   def home
     @highlights = Highlight.all
+    @banners = Banner.all
   end
   def bookmarks
     @liked_products = current_user.get_up_voted(Product)
+  end
+  def favourite
+    @liked_shops = current_user.get_up_voted(Shop)
   end
   def change
     @highlights = Highlight.all

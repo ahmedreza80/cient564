@@ -2,6 +2,8 @@ class Product < ApplicationRecord
 	mount_uploader :image, ImageUploader
 	mount_uploader :imagetwo, ImageUploader
 	mount_uploader :imagethree, ImageUploader
+	mount_uploader :imagefour, ImageUploader
+	mount_uploader :imagefive, ImageUploader
 	belongs_to :user
 	belongs_to :shop
 	has_many :items, class_name: 'OrderItem'
@@ -15,6 +17,10 @@ acts_as_votable
 
 def original_deal
   price
+end
+
+def product_name
+	product.try(:name)
 end
 
 def our_deal

@@ -9,6 +9,6 @@ before_action :configure_sign_up_params, only: [:create]
   #then the method called in the before action where you permit the parameters
   protected
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :phone, :location, :pincode])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :phone, :location, :pincode, :pp, :about])
   end
 end
