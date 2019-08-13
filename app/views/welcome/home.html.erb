@@ -71,7 +71,7 @@ $(document).ready(function(){
                               
 
                                 <% if current_or_guest_user.search_area? %>
-                              <form class="form-wrap mt-4">
+                              <form class="form-wrap mt-4 example">
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                       <div class="select-wapper" style="display:none;">
                                         <%= select_tag :state, options_for_select([["Select a state",""]] + State.all.map { |c| [c.name, c.id] }.sort,selected: current_or_guest_user.search_state ), id: "state"%>
@@ -82,10 +82,44 @@ $(document).ready(function(){
                                         <div class="select-wapper" style="display:none;">
                                         <%= select_tag :area, options_for_select([["Select a Area",""]] + Area.all.map { |c| [c.name, c.id] }.sort, selected: current_or_guest_user.search_area), :id => 'area' %>
                                         </div>
-                              <input type="text" placeholder="What are you looking for?" id="search" class="btn-group1" style="color: #000; width: 80%;">
+                              <input type="text" placeholder="What are you looking for?" id="search" class="btn-group1" style="color: #000;">
                                        
                                         
-                                        <a href="/welcome/search" class="btn-form search-btn" style="color: #000; background-color: #fff; width: 30px;"><i class="fa fa-search"></i></a>
+                                        <a href="/welcome/search" class="bhadwa btn-form search-btn"><i class="fa fa-search"></i></a>
+
+<style>
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  height: 100%;
+  background: #fff;
+}
+
+.bhadwa {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #fff;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
                                         <a href="/welcome/ashop" class="btn-form search-btn" style="font-size:18px; color: #fff;">Shops Nearby<i class="pe-7s-angle-right"></i></a>
                                       </div>
                                       </form>
@@ -592,7 +626,7 @@ $(document).ready(function(){
                         <div class="row d-flex justify-content-center">
                             <div class="col-md-10">
                               <% if current_or_guest_user.search_area? %>
-                              <form class="form-wrap mt-4">
+                              <form class="form-wrap mt-4 example">
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                       <div class="select-wapper" style="display:none;">
                                         <%= select_tag :state, options_for_select([["Select a state",""]] + State.all.map { |c| [c.name, c.id] }.sort,selected: current_or_guest_user.search_state ), id: "state"%>
@@ -606,8 +640,41 @@ $(document).ready(function(){
                               <input type="text" placeholder="What are you looking for?" id="search" class="btn-group1">
                                        
                                         
-                                        <a href="/welcome/search" class="btn-form search-btn" style="color: #000; background-color: #fff; width: 30px;"><i class="fa fa-search"></i></a>
+                                        <a href="/welcome/search" class="bhadwa btn-form search-btn"><i class="fa fa-search"></i></a>
 
+<style>
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  height: 100%;
+  background: #fff;
+}
+
+.bhadwa {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #fff;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
                                         <a href="/welcome/ashop" class="btn-form search-btn" style="font-size:18px; color: #fff;">Shops Nearby<i class="pe-7s-angle-right"></i></a>
                                       </div>
                                       </form>
