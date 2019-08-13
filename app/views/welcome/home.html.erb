@@ -82,7 +82,7 @@ $(document).ready(function(){
                                         <div class="select-wapper" style="display:none;">
                                         <%= select_tag :area, options_for_select([["Select a Area",""]] + Area.all.map { |c| [c.name, c.id] }.sort, selected: current_or_guest_user.search_area), :id => 'area' %>
                                         </div>
-                              <input type="text" placeholder="What are you looking for?" id="search" class="btn-group1" style="color: #000;">
+                              <input type="text" placeholder="What are you looking for?" id="search" class="btn-group1" style="color: #000; width: 80%;">
                                        
                                         
                                         <a href="/welcome/search" class="btn-form search-btn" style="color: #000; background-color: #fff; width: 30px;"><i class="fa fa-search"></i></a>
@@ -607,7 +607,7 @@ $(document).ready(function(){
                                        
                                         
                                         <a href="/welcome/search" class="btn-form search-btn" style="color: #000; background-color: #fff; width: 30px;"><i class="fa fa-search"></i></a>
-                                        
+
                                         <a href="/welcome/ashop" class="btn-form search-btn" style="font-size:18px; color: #fff;">Shops Nearby<i class="pe-7s-angle-right"></i></a>
                                       </div>
                                       </form>
