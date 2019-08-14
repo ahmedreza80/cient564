@@ -162,21 +162,18 @@ form.example::after {
 
 
 
-<div class="row" style="padding: 0px;">
-<ul class="bxslider" style="padding: 0px;">
-  <% @highlights.each do |highlight| %>
-  <% @banners.each do |banner| %>
-  <% if highlight.area == current_or_guest_user.search_area or highlight.state == current_or_guest_user.search_state or highlight.city == current_or_guest_user.search_city %>
-  <% if banner.area == current_or_guest_user.search_area or banner.state == current_or_guest_user.search_state or banner.city == current_or_guest_user.search_city %>
-  <div class="row"><%= image_tag highlight.image, class: "babes" %>
-    <%= image_tag banner.image, class: "babes" %>
-  </div>
-  <% end %>
-  <% end %>
-  <% end %>
+<ul class="bxslider">
+  <% @highlights.each_cons(2) do |highlight1, highlight2| %>
+  <% if highlight1.area == current_or_guest_user.search_area or highlight1.state == current_or_guest_user.search_state or highlight1.city == current_or_guest_user.search_city %>
+  <% if highlight2.area == current_or_guest_user.search_area or highlight2.state == current_or_guest_user.search_state or highlight2.city == current_or_guest_user.search_city %>
+      <li class="row">
+        <%= image_tag highlight1.image, :class => "dali col-xs-6" %>
+        <%= image_tag highlight2.image, :class => "dali col-xs-6" %>
+      </li>
+    <% end %>
+    <% end %>
   <% end %>
 </ul>
-</div>
 
 
 
@@ -716,21 +713,9 @@ form.example::after {
     <!--// SLIDER -->
     <!--//END HEADER -->
     <!--============================= FIND PLACES =============================-->
-    <div class="row" style="padding: 0px;">
-<ul class="bxslider" style="padding: 0px;">
-  <% @highlights.each do |highlight| %>
-  <% @banners.each do |banner| %>
-  <% if highlight.area == current_or_guest_user.search_area or highlight.state == current_or_guest_user.search_state or highlight.city == current_or_guest_user.search_city %>
-  <% if banner.area == current_or_guest_user.search_area or banner.state == current_or_guest_user.search_state or banner.city == current_or_guest_user.search_city %>
-  <div class="row"><%= image_tag highlight.image, class: "babes" %>
-    <%= image_tag banner.image, class: "babes" %>
-  </div>
-  <% end %>
-  <% end %>
-  <% end %>
-  <% end %>
-</ul>
-</div>
+    
+
+
 
 <style>
 .babes {
