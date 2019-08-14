@@ -1,5 +1,4 @@
-
-<div id="myFilterpanel" class="sidepanel">
+ <div id="myFilterpanel" class="sidepanel">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
   <hr>
   <p><b>Shops Location Wise:</b></p>
@@ -86,11 +85,27 @@ function closeNav() {
         <p class="desc"><%= shop.description %></p>
         <div class="rating-wrap">
           <div class="label-rating">Category: <%= shop.category %></div>
+          <div class="star-rating" data-score= <%= @avg_review %> ></div>
+          <em><%= "#{shop.reviews.length} reviews" %></em>
+          
           
         </div> <!-- rating-wrap.// -->
     </figcaption>
     <div class="bottom-wrap">
       <%= link_to "View Shop", shop, class: "btn btn-sm btn-primary float-right" %>
+          <% if current_user.liked? shop %>
+            <a href="#" class="float-left">
+              
+          Added To <i class="glyphicon glyphicon-heart"></i>
+        </a>
+          <% else %>
+          <a href="#" class="float-left">
+              
+          <%= button_to like_shop_path(shop), method: :put do %>
+          Add to <i class="glyphicon glyphicon-heart"></i>
+          <% end %>
+        </a>
+          <% end %>
     </div> <!-- bottom-wrap.// -->
   </figure>
 </div> <!-- col // -->
@@ -105,11 +120,27 @@ function closeNav() {
         <p class="desc"><%= shop.description %></p>
         <div class="rating-wrap">
           <div class="label-rating">Category: <%= shop.category %></div>
+          <div class="star-rating" data-score= <%= @avg_review %> ></div>
+          <em><%= "#{shop.reviews.length} reviews" %></em>
+          
           
         </div> <!-- rating-wrap.// -->
     </figcaption>
     <div class="bottom-wrap">
       <%= link_to "View Shop", shop, class: "btn btn-sm btn-primary float-right" %>
+          <% if current_user.liked? shop %>
+            <a href="#" class="float-left">
+              
+          Added To <i class="glyphicon glyphicon-heart"></i>
+        </a>
+          <% else %>
+          <a href="#" class="float-left">
+              
+          <%= button_to like_shop_path(shop), method: :put do %>
+          Add to <i class="glyphicon glyphicon-heart"></i>
+          <% end %>
+        </a>
+          <% end %>
     </div> <!-- bottom-wrap.// -->
   </figure>
 </div> <!-- col // -->
@@ -124,11 +155,27 @@ function closeNav() {
         <p class="desc"><%= shop.description %></p>
         <div class="rating-wrap">
           <div class="label-rating">Category: <%= shop.category %></div>
+          <div class="star-rating" data-score= <%= @avg_review %> ></div>
+          <em><%= "#{shop.reviews.length} reviews" %></em>
+          
           
         </div> <!-- rating-wrap.// -->
     </figcaption>
     <div class="bottom-wrap">
       <%= link_to "View Shop", shop, class: "btn btn-sm btn-primary float-right" %>
+          <% if current_user.liked? shop %>
+            <a href="#" class="float-left">
+              
+          Added To <i class="glyphicon glyphicon-heart"></i>
+        </a>
+          <% else %>
+          <a href="#" class="float-left">
+              
+          <%= button_to like_shop_path(shop), method: :put do %>
+          Add to <i class="glyphicon glyphicon-heart"></i>
+          <% end %>
+        </a>
+          <% end %>
     </div> <!-- bottom-wrap.// -->
   </figure>
 </div> <!-- col // -->
@@ -139,7 +186,15 @@ function closeNav() {
 
               </div>
 </div>
-
+<script>
+      $('.star-rating').raty({
+        path: '/assets/',
+        readOnly: true,
+        score: function() {
+              return $(this).attr('data-score');
+      }
+    });
+  </script>
 
 <style>
   .card-product .img-wrap {

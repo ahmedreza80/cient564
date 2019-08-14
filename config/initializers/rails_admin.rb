@@ -32,7 +32,7 @@ config.model User do
     end
   end
   
-  config.main_app_name = ["Cool app", "BackOffice"]
+  config.main_app_name = ["Nearclick", "BackOffice"]
   # or something more dynamic
   config.actions do
     dashboard                     # mandatory
