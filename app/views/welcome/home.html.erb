@@ -167,8 +167,8 @@ form.example::after {
   <% if highlight1.area == current_or_guest_user.search_area or highlight1.state == current_or_guest_user.search_state or highlight1.city == current_or_guest_user.search_city %>
   <% if highlight2.area == current_or_guest_user.search_area or highlight2.state == current_or_guest_user.search_state or highlight2.city == current_or_guest_user.search_city %>
       <li class="row">
-        <%= image_tag highlight1.image, :class => "dali col-xs-6" %>
-        <%= image_tag highlight2.image, :class => "dali col-xs-6" %>
+        <%= image_tag highlight1.image, :class => "dali" %>
+        <%= image_tag highlight2.image, :class => "dali" %>
       </li>
     <% end %>
     <% end %>
@@ -180,6 +180,11 @@ form.example::after {
 
 <style>
   .babes {
+  width: 50%;
+}
+
+.dali {
+  height: 100px;
   width: 50%;
 }
 .dodo {
@@ -713,12 +718,24 @@ form.example::after {
     <!--// SLIDER -->
     <!--//END HEADER -->
     <!--============================= FIND PLACES =============================-->
-    
+    <ul class="bxslider">
+  <% @highlights.each_cons(2) do |highlight1, highlight2| %>
+  <% if highlight1.area == current_or_guest_user.search_area or highlight1.state == current_or_guest_user.search_state or highlight1.city == current_or_guest_user.search_city %>
+  <% if highlight2.area == current_or_guest_user.search_area or highlight2.state == current_or_guest_user.search_state or highlight2.city == current_or_guest_user.search_city %>
+      <li class="row">
+        <%= image_tag highlight1.image, :class => "dali" %>
+        <%= image_tag highlight2.image, :class => "dali" %>
+      </li>
+    <% end %>
+    <% end %>
+  <% end %>
+</ul>
 
 
 
 <style>
-.babes {
+.dali {
+  height: 100px;
   width: 50%;
 }
 .dodo {
