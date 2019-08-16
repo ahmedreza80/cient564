@@ -99,7 +99,7 @@ form.example input[type=text] {
 
 .bhadwa {
   float: left;
-  width: 18%;
+  width: 20%;
   padding: 10px;
   background: #fff;
   color: white;
@@ -186,13 +186,6 @@ form.example::after {
 .dali {
   height: 100px;
   width: 50%;
-}
-.dodo {
-  height: 30%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
 }
     .button {
   background-color: #4CAF50;
@@ -408,7 +401,7 @@ function closeNav() {
           var state = $("#state").val()
           var city = $("#city").val()
           var search = $("#search").val()
-          window.location = $href + '?search=' + search+ "&state=" +state+ "&city="+ city
+          window.location = $href + '?search=' + search+ "&state=" +state+ "&city="+ city+ "&area=" +area
         })
         function getCitiesOfState(val){
         $.ajax({
@@ -724,7 +717,7 @@ form.example::after {
   <% if highlight2.area == current_or_guest_user.search_area or highlight2.state == current_or_guest_user.search_state or highlight2.city == current_or_guest_user.search_city %>
       <li class="row">
         <%= image_tag highlight1.image, :class => "dali" %>
-        <%= image_tag highlight2.image, :class => "dali" %>
+        <%= image_tag highlight2.image, :class => "ruby" %>
       </li>
     <% end %>
     <% end %>
@@ -735,6 +728,10 @@ form.example::after {
 
 <style>
 .dali {
+  height: 100px;
+  width: 50%;
+}
+.ruby {
   height: 100px;
   width: 50%;
 }
