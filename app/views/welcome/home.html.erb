@@ -1139,7 +1139,7 @@ function closeNav() {
           .attr( "title", "" )
           .attr("placeholder", "State")
           .addClass( "custom-input" )
-          .css('width','120px')
+          .css('width','100px')
           .autocomplete({
             delay: 0,
             minLength: 0,
@@ -1182,7 +1182,7 @@ function closeNav() {
             wasOpen = input.autocomplete( "widget" ).is( ":visible")
           })
           .on( "click", function() {
-            //input.trigger( "focus" );
+            input.trigger( "focus" );
  
             // Close if already visible
             if ( wasOpen ) {
@@ -1273,7 +1273,7 @@ function closeNav() {
           .attr( "title", "" )
           .attr("placeholder", "District")
           .addClass( "custom-input" )
-          .css('width','120px')
+          .css('width','100px')
           .autocomplete({
             delay: 0,
             minLength: 0,
