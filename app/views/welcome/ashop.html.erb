@@ -1,5 +1,5 @@
  <div id="myFilterpanel" class="sidepanel">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="javascript:void(0)" class="closebtnt" onclick="closeNavt()">×</a>
   <hr>
   <p><b>Shops Location Wise:</b></p>
   <form>
@@ -58,17 +58,17 @@ function myFunctiontwo() {
   }
 }
 </script>
-<button class="openbtn" onclick="openNav()" style="padding-top: 80px"><i class="fas fa-cog"></i></button>
+<button class="openbtn" onclick="openNavt()" style="padding-top: 80px"><i class="fas fa-cog"></i></button>
 <div class="container" style=" text-align:center;">
   <div class="center" style="text-align:center;">
   <h1>All Shops In Your Area</h1>
 </div>
 <script>
-function openNav() {
+function openNavt() {
   document.getElementById("myFilterpanel").style.width = "250px";
 }
 
-function closeNav() {
+function closeNavt() {
   document.getElementById("myFilterpanel").style.width = "0";
 }
 </script>
@@ -93,7 +93,7 @@ function closeNav() {
     </figcaption>
     <div class="bottom-wrap">
       <%= link_to "View Shop", shop, class: "btn btn-sm btn-primary float-right" %>
-          <% if current_user.liked? shop %>
+          <% if current_or_guest_user.liked? shop %>
             <a href="#" class="float-left">
               
           Added To <i class="glyphicon glyphicon-heart"></i>
@@ -128,7 +128,7 @@ function closeNav() {
     </figcaption>
     <div class="bottom-wrap">
       <%= link_to "View Shop", shop, class: "btn btn-sm btn-primary float-right" %>
-          <% if current_user.liked? shop %>
+          <% if current_or_guest_user.liked? shop %>
             <a href="#" class="float-left">
               
           Added To <i class="glyphicon glyphicon-heart"></i>
@@ -163,7 +163,7 @@ function closeNav() {
     </figcaption>
     <div class="bottom-wrap">
       <%= link_to "View Shop", shop, class: "btn btn-sm btn-primary float-right" %>
-          <% if current_user.liked? shop %>
+          <% if current_or_guest_user.liked? shop %>
             <a href="#" class="float-left">
               
           Added To <i class="glyphicon glyphicon-heart"></i>
@@ -258,14 +258,14 @@ body {
   color: #f1f1f1;
 }
 
-.sidepanel .closebtn {
+.sidepanel .closebtnt {
   position: absolute;
   top: 0;
   right: 25px;
   font-size: 36px;
   background-color: #fff;
 }
-.closebtn {
+.closebtnt {
   background-color: #fff;
 }
 

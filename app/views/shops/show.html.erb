@@ -393,7 +393,7 @@ body {
             </li>
 
             <li>
-            <% if current_user.liked? @shop %>
+            <% if current_or_guest_user.liked? @shop %>
             <a href="#">
               <i class="glyphicon glyphicon-heart"></i>
           You Have added this shop as your favourite
