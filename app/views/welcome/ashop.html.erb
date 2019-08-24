@@ -60,9 +60,7 @@ function myFunctiontwo() {
 </script>
 <button class="openbtn" onclick="openNavt()" style="padding-top: 80px"><i class="fas fa-cog"></i></button>
 <div class="container" style=" text-align:center;">
-  <div class="center" style="text-align:center;">
-  <h1>All Shops In Your Area</h1>
-</div>
+  
 <script>
 function openNavt() {
   document.getElementById("myFilterpanel").style.width = "250px";
@@ -72,80 +70,15 @@ function closeNavt() {
   document.getElementById("myFilterpanel").style.width = "0";
 }
 </script>
-<hr>
+
   <div class="row">
                 <% @shops&.each do |shop| %>
+                <% if shop.operating == "Area" %>
                 <% if shop.area == current_or_guest_user.search_area %>
-      
-                <div class="col-md-4">
-  <figure class="card card-product">
-    <div class="img-wrap"><img src="<%= shop.imageshop %>" style="width:300px; height:250px;"></div>
-    <figcaption class="info-wrap">
-        <h4 class="title"><a href="#"><%= shop.name %></a></h4>
-        <p class="desc"><%= shop.description %></p>
-        <div class="rating-wrap">
-          <div class="label-rating">Category: <%= shop.category %></div>
-          <div class="star-rating" data-score= <%= @avg_review %> ></div>
-          <em><%= "#{shop.reviews.length} reviews" %></em>
-          
-          
-        </div> <!-- rating-wrap.// -->
-    </figcaption>
-    <div class="bottom-wrap">
-      <%= link_to "View Shop", shop, class: "btn btn-sm btn-primary float-right" %>
-          <% if current_or_guest_user.liked? shop %>
-            <a href="#" class="float-left">
-              
-          Added To <i class="glyphicon glyphicon-heart"></i>
-        </a>
-          <% else %>
-          <a href="#" class="float-left">
-              
-          <%= button_to like_shop_path(shop), method: :put do %>
-          Add to <i class="glyphicon glyphicon-heart"></i>
-          <% end %>
-        </a>
-          <% end %>
-    </div> <!-- bottom-wrap.// -->
-  </figure>
-</div> <!-- col // -->
-<% else %>
-<% if shop.state == current_or_guest_user.search_state %>
-      
-                <div class="col-md-4">
-  <figure class="card card-product">
-    <div class="img-wrap"><img src="<%= shop.imageshop %>" style="width:300px; height:250px;"></div>
-    <figcaption class="info-wrap">
-        <h4 class="title"><a href="#"><%= shop.name %></a></h4>
-        <p class="desc"><%= shop.description %></p>
-        <div class="rating-wrap">
-          <div class="label-rating">Category: <%= shop.category %></div>
-          <div class="star-rating" data-score= <%= @avg_review %> ></div>
-          <em><%= "#{shop.reviews.length} reviews" %></em>
-          
-          
-        </div> <!-- rating-wrap.// -->
-    </figcaption>
-    <div class="bottom-wrap">
-      <%= link_to "View Shop", shop, class: "btn btn-sm btn-primary float-right" %>
-          <% if current_or_guest_user.liked? shop %>
-            <a href="#" class="float-left">
-              
-          Added To <i class="glyphicon glyphicon-heart"></i>
-        </a>
-          <% else %>
-          <a href="#" class="float-left">
-              
-          <%= button_to like_shop_path(shop), method: :put do %>
-          Add to <i class="glyphicon glyphicon-heart"></i>
-          <% end %>
-        </a>
-          <% end %>
-    </div> <!-- bottom-wrap.// -->
-  </figure>
-</div> <!-- col // -->
-<% else %>
-<% if shop.city == current_or_guest_user.search_city %>
+                <div class="center" style="text-align:center;">
+  <h1>Shops In Your Area</h1>
+  <hr>
+</div>
       
                 <div class="col-md-4">
   <figure class="card card-product">
@@ -180,6 +113,87 @@ function closeNavt() {
   </figure>
 </div> <!-- col // -->
 <% end %>
+<% end %>
+<% if shop.operating == "City / District" %>
+<% if shop.city == current_or_guest_user.search_city %>
+<hr>
+<div class="center" style="text-align:center;">
+  <h1>Shops In Your City/District</h1>
+</div>
+      
+                <div class="col-md-4">
+  <figure class="card card-product">
+    <div class="img-wrap"><img src="<%= shop.imageshop %>" style="width:300px; height:250px;"></div>
+    <figcaption class="info-wrap">
+        <h4 class="title"><a href="#"><%= shop.name %></a></h4>
+        <p class="desc"><%= shop.description %></p>
+        <div class="rating-wrap">
+          <div class="label-rating">Category: <%= shop.category %></div>
+          <div class="star-rating" data-score= <%= @avg_review %> ></div>
+          <em><%= "#{shop.reviews.length} reviews" %></em>
+          
+          
+        </div> <!-- rating-wrap.// -->
+    </figcaption>
+    <div class="bottom-wrap">
+      <%= link_to "View Shop", shop, class: "btn btn-sm btn-primary float-right" %>
+          <% if current_or_guest_user.liked? shop %>
+            <a href="#" class="float-left">
+              
+          Added To <i class="glyphicon glyphicon-heart"></i>
+        </a>
+          <% else %>
+          <a href="#" class="float-left">
+              
+          <%= button_to like_shop_path(shop), method: :put do %>
+          Add to <i class="glyphicon glyphicon-heart"></i>
+          <% end %>
+        </a>
+          <% end %>
+    </div> <!-- bottom-wrap.// -->
+  </figure>
+</div> <!-- col // -->
+<% end %>
+<% end %>
+<% if shop.operating == "State" %>
+<% if shop.state == current_or_guest_user.search_state %>
+<hr>
+<div class="center" style="text-align:center;">
+  <h1>Shops In Your State</h1>
+</div>
+      
+                <div class="col-md-4">
+  <figure class="card card-product">
+    <div class="img-wrap"><img src="<%= shop.imageshop %>" style="width:300px; height:250px;"></div>
+    <figcaption class="info-wrap">
+        <h4 class="title"><a href="#"><%= shop.name %></a></h4>
+        <p class="desc"><%= shop.description %></p>
+        <div class="rating-wrap">
+          <div class="label-rating">Category: <%= shop.category %></div>
+          <div class="star-rating" data-score= <%= @avg_review %> ></div>
+          <em><%= "#{shop.reviews.length} reviews" %></em>
+          
+          
+        </div> <!-- rating-wrap.// -->
+    </figcaption>
+    <div class="bottom-wrap">
+      <%= link_to "View Shop", shop, class: "btn btn-sm btn-primary float-right" %>
+          <% if current_or_guest_user.liked? shop %>
+            <a href="#" class="float-left">
+              
+          Added To <i class="glyphicon glyphicon-heart"></i>
+        </a>
+          <% else %>
+          <a href="#" class="float-left">
+              
+          <%= button_to like_shop_path(shop), method: :put do %>
+          Add to <i class="glyphicon glyphicon-heart"></i>
+          <% end %>
+        </a>
+          <% end %>
+    </div> <!-- bottom-wrap.// -->
+  </figure>
+</div> <!-- col // -->
 <% end %>
 <% end %>
 <% end %>
