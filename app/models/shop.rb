@@ -14,7 +14,9 @@ class Shop < ApplicationRecord
 	acts_as_commontable
   acts_as_votable
 
-
+def operating_enum
+    ['Area', 'City / District', 'State']
+  end
 def status_enum
     # Do not select any value, or add any blank field. RailsAdmin will do it for you.
     ['Active', 'Disable']
