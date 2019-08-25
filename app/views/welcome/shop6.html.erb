@@ -4,18 +4,16 @@
 
   <main>
 
-
-
-
     <div class="container-fluid bg-cover">
       <div class="container product-section-cover">
 
         <div class="row">
-
-
+         
           <% @shops.each do |shop| %>
+          
           <% if shop.category == "Grocery" %>
-          <% if shop.area == current_or_guest_user.search_area %>
+          <% if shop.operating == "Area" %>
+           <% if shop.area == current_or_guest_user.search_area %>
           <div class="col-md-4">
   <figure class="card card-product">
     <div class="img-wrap"><img src="<%= shop.imageshop %>" style="width:300px; height:250px;"></div>
@@ -24,122 +22,27 @@
         <p class="desc"><%= shop.description %></p>
         <div class="rating-wrap">
           <div class="label-rating">Category: <%= shop.category %></div>
+          <div class="star-rating" data-score= <%= @avg_review %> ></div>
+          <em><%= "#{shop.reviews.length} reviews" %></em>
+          
           
         </div> <!-- rating-wrap.// -->
     </figcaption>
     <div class="bottom-wrap">
       <%= link_to "View Shop", shop, class: "btn btn-sm btn-primary float-right" %>
-    </div> <!-- bottom-wrap.// -->
-  </figure>
-</div> <!-- col // -->
-<style>
-  .card-product .img-wrap {
-    border-radius: 3px 3px 0 0;
-    overflow: hidden;
-    position: relative;
-    height: 220px;
-    text-align: center;
-}
-.card-product .img-wrap img {
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: cover;
-}
-.card-product .info-wrap {
-    overflow: hidden;
-    padding: 15px;
-    border-top: 1px solid #eee;
-}
-.card-product .bottom-wrap {
-    padding: 15px;
-    border-top: 1px solid #eee;
-}
-
-.label-rating { margin-right:10px;
-    color: #333;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.card-product .price-old {
-    color: #999;
-}
-</style>
-<% else %>
-
-
-
-
-
-
-          <% if shop.state == current_or_guest_user.search_state %>
-          <div class="col-md-4">
-  <figure class="card card-product">
-    <div class="img-wrap"><img src="<%= shop.imageshop %>" style="width:300px; height:250px;"></div>
-    <figcaption class="info-wrap">
-        <h4 class="title"><a href="#"><%= shop.name %></a></h4>
-        <p class="desc"><%= shop.description %></p>
-        <div class="rating-wrap">
-          <div class="label-rating">Category: <%= shop.category %></div>
-          
-        </div> <!-- rating-wrap.// -->
-    </figcaption>
-    <div class="bottom-wrap">
-      <%= link_to "View Shop", shop, class: "btn btn-sm btn-primary float-right" %>
-    </div> <!-- bottom-wrap.// -->
-  </figure>
-</div> <!-- col // -->
-<style>
-  .card-product .img-wrap {
-    border-radius: 3px 3px 0 0;
-    overflow: hidden;
-    position: relative;
-    height: 220px;
-    text-align: center;
-}
-.card-product .img-wrap img {
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: cover;
-}
-.card-product .info-wrap {
-    overflow: hidden;
-    padding: 15px;
-    border-top: 1px solid #eee;
-}
-.card-product .bottom-wrap {
-    padding: 15px;
-    border-top: 1px solid #eee;
-}
-
-.label-rating { margin-right:10px;
-    color: #333;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.card-product .price-old {
-    color: #999;
-}
-</style>
-<% else %>
-
-
-
-          <% if shop.city == current_or_guest_user.search_city %>
-          <div class="col-md-4">
-  <figure class="card card-product">
-    <div class="img-wrap"><img src="<%= shop.imageshop %>" style="width:300px; height:250px;"></div>
-    <figcaption class="info-wrap">
-        <h4 class="title"><a href="#"><%= shop.name %></a></h4>
-        <p class="desc"><%= shop.description %></p>
-        <div class="rating-wrap">
-          <div class="label-rating">Category: <%= shop.category %></div>
-          
-        </div> <!-- rating-wrap.// -->
-    </figcaption>
-    <div class="bottom-wrap">
-      <%= link_to "View Shop", shop, class: "btn btn-sm btn-primary float-right" %>
+          <% if current_or_guest_user.liked? shop %>
+            <a href="#" class="float-left">
+              
+          Added To <i class="glyphicon glyphicon-heart"></i>
+        </a>
+          <% else %>
+          <a href="#" class="float-left">
+              
+          <%= button_to like_shop_path(shop), method: :put do %>
+          Add to <i class="glyphicon glyphicon-heart"></i>
+          <% end %>
+        </a>
+          <% end %>
     </div> <!-- bottom-wrap.// -->
   </figure>
 </div> <!-- col // -->
@@ -177,6 +80,153 @@
 }
 </style>
 <% end %>
+<% end %>
+
+
+
+
+         <% if shop.operating == "City / District" %>
+          <% if shop.city == current_or_guest_user.search_city %>
+          
+          <div class="col-md-4">
+  <figure class="card card-product">
+    <div class="img-wrap"><img src="<%= shop.imageshop %>" style="width:300px; height:250px;"></div>
+    <figcaption class="info-wrap">
+        <h4 class="title"><a href="#"><%= shop.name %></a></h4>
+        <p class="desc"><%= shop.description %></p>
+        <div class="rating-wrap">
+          <div class="label-rating">Category: <%= shop.category %></div>
+          <div class="star-rating" data-score= <%= @avg_review %> ></div>
+          <em><%= "#{shop.reviews.length} reviews" %></em>
+          
+          
+        </div> <!-- rating-wrap.// -->
+    </figcaption>
+    <div class="bottom-wrap">
+      <%= link_to "View Shop", shop, class: "btn btn-sm btn-primary float-right" %>
+          <% if current_or_guest_user.liked? shop %>
+            <a href="#" class="float-left">
+              
+          Added To <i class="glyphicon glyphicon-heart"></i>
+        </a>
+          <% else %>
+          <a href="#" class="float-left">
+              
+          <%= button_to like_shop_path(shop), method: :put do %>
+          Add to <i class="glyphicon glyphicon-heart"></i>
+          <% end %>
+        </a>
+          <% end %>
+    </div> <!-- bottom-wrap.// -->
+  </figure>
+</div> <!-- col // -->
+<style>
+  .card-product .img-wrap {
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+    position: relative;
+    height: 220px;
+    text-align: center;
+}
+.card-product .img-wrap img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+.card-product .info-wrap {
+    overflow: hidden;
+    padding: 15px;
+    border-top: 1px solid #eee;
+}
+.card-product .bottom-wrap {
+    padding: 15px;
+    border-top: 1px solid #eee;
+}
+
+.label-rating { margin-right:10px;
+    color: #333;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.card-product .price-old {
+    color: #999;
+}
+</style>
+<% end %>
+<% end %>
+
+
+
+         <% if shop.operating == "State" %>
+          <% if shop.state == current_or_guest_user.search_state %>
+          
+          <div class="col-md-4">
+  <figure class="card card-product">
+    <div class="img-wrap"><img src="<%= shop.imageshop %>" style="width:300px; height:250px;"></div>
+    <figcaption class="info-wrap">
+        <h4 class="title"><a href="#"><%= shop.name %></a></h4>
+        <p class="desc"><%= shop.description %></p>
+        <div class="rating-wrap">
+          <div class="label-rating">Category: <%= shop.category %></div>
+          <div class="star-rating" data-score= <%= @avg_review %> ></div>
+          <em><%= "#{shop.reviews.length} reviews" %></em>
+          
+          
+        </div> <!-- rating-wrap.// -->
+    </figcaption>
+    <div class="bottom-wrap">
+      <%= link_to "View Shop", shop, class: "btn btn-sm btn-primary float-right" %>
+          <% if current_or_guest_user.liked? shop %>
+            <a href="#" class="float-left">
+              
+          Added To <i class="glyphicon glyphicon-heart"></i>
+        </a>
+          <% else %>
+          <a href="#" class="float-left">
+              
+          <%= button_to like_shop_path(shop), method: :put do %>
+          Add to <i class="glyphicon glyphicon-heart"></i>
+          <% end %>
+        </a>
+          <% end %>
+    </div> <!-- bottom-wrap.// -->
+  </figure>
+</div> <!-- col // -->
+<style>
+  .card-product .img-wrap {
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+    position: relative;
+    height: 220px;
+    text-align: center;
+}
+.card-product .img-wrap img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+.card-product .info-wrap {
+    overflow: hidden;
+    padding: 15px;
+    border-top: 1px solid #eee;
+}
+.card-product .bottom-wrap {
+    padding: 15px;
+    border-top: 1px solid #eee;
+}
+
+.label-rating { margin-right:10px;
+    color: #333;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.card-product .price-old {
+    color: #999;
+}
+</style>
+
 <% end %>
 <% end %>
           <% end %>
@@ -185,7 +235,15 @@
       </div>
     </div>
 
-
+<script>
+      $('.star-rating').raty({
+        path: '/assets/',
+        readOnly: true,
+        score: function() {
+              return $(this).attr('data-score');
+      }
+    });
+  </script>
   </main>
 
 </body>
