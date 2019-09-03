@@ -15,7 +15,7 @@ class User < ApplicationRecord
   acts_as_commontator
   acts_as_voter
   acts_as_reader
-  scope :verified, -> { where(guest: false) }
+  scope :verified, -> { where('location IS NOT NULL') }
 
   
   def is_agent?

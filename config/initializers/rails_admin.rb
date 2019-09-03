@@ -1,4 +1,9 @@
 RailsAdmin.config do |config|
+  config.model User do
+    list do
+      scopes [:verified]
+    end
+  end
 
   ### Popular gems integration
 
@@ -10,11 +15,7 @@ RailsAdmin.config do |config|
 
   ## == Cancan ==
   # config.authorize_with :cancan
-config.model User do
-    list do
-      scopes [:verified]
-    end
-  end
+
   ## == Pundit ==
   # config.authorize_with :pundit
 
@@ -49,6 +50,7 @@ config.model User do
     # history_index
     # history_show
   end
+
 
   # Config for model products
   config.model Product do
