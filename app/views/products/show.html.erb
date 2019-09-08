@@ -112,6 +112,8 @@
         </div>
             <% end %>
             <p class="vote"><strong>91%</strong> of buyers enjoyed this product!</p>
+            
+            <p>Sold By:<span> <%= @product.shop.name %></span></p>
             <% if @product.gst? %>
             <div class="action">
               <%= form_tag order_items_path do %>
