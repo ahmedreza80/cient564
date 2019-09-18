@@ -1,3 +1,19 @@
+
+<script>
+$(document).ready(function(){
+  $('.bxslider').bxSlider({
+     infiniteLoop: false,
+     minSlides: 1,
+        maxSlides: 40,
+        slideWidth: 1550,
+        slideMargin: 0,
+        moveSlides: 1,
+        shrinkItems: true,
+        responsive: true,
+        useCSS: true
+  });
+});
+  </script>
 <% if mobile_device == "mobile" %>
 <head>
  
@@ -26,11 +42,7 @@
     <link rel="stylesheet" href="/assets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-      <script>
-$(document).ready(function(){
-  $('.bxslider').bxSlider();
-});
-  </script>
+      
 
 </head>
 
@@ -569,11 +581,7 @@ function closeNav() {
     <!-- jQuery library (served from Google) -->
 
 
-  <script>
-$(document).ready(function(){
-  $('.bxslider').bxSlider();
-});
-  </script>
+
    
 </head>
 
@@ -712,7 +720,7 @@ form.example::after {
     <!--// SLIDER -->
     <!--//END HEADER -->
     <!--============================= FIND PLACES =============================-->
-    <ul class="bxslider">
+    <ul class="bxslider bhadwa">
   <% @highlights.each_cons(2) do |highlight1, highlight2| %>
   <% if highlight1.area == current_or_guest_user.search_area or highlight1.state == current_or_guest_user.search_state or highlight1.city == current_or_guest_user.search_city %>
   <% if highlight2.area == current_or_guest_user.search_area or highlight2.state == current_or_guest_user.search_state or highlight2.city == current_or_guest_user.search_city %>
@@ -728,6 +736,9 @@ form.example::after {
 
 
 <style>
+  .bxslider{
+    width: 100%
+  }
 .dali {
   height: 100px;
   width: 50%;
@@ -743,11 +754,14 @@ form.example::after {
   background-size: cover;
   position: relative;
 }
+.bhadwa {
+  padding-left: 50px;
+}
 </style>
     <section class="main-block" style="padding: 0px;">
         <div class="container">
             <div class="row justify-content-center">
-               <div class="row">
+               <div class="bhadwarow">
                 <div class="col-md-4">
                     <a href="/welcome/events">
                     <div class="find-place-img_wrap">
