@@ -2,6 +2,7 @@
 <script>
 $(document).ready(function(){
   $('.bxslider').bxSlider({
+    auto: true,
      infiniteLoop: false,
      minSlides: 1,
         maxSlides: 40,
@@ -174,13 +175,17 @@ form.example::after {
 
 
 
-<ul class="bxslider">
+<ul class="bxslider bhadwa">
   <% @highlights.each_cons(2) do |highlight1, highlight2| %>
   <% if highlight1.area == current_or_guest_user.search_area or highlight1.state == current_or_guest_user.search_state or highlight1.city == current_or_guest_user.search_city %>
   <% if highlight2.area == current_or_guest_user.search_area or highlight2.state == current_or_guest_user.search_state or highlight2.city == current_or_guest_user.search_city %>
       <li class="row">
+         <%= link_to highlight1 do %>
         <%= image_tag highlight1.image, :class => "dali" %>
-        <%= image_tag highlight2.image, :class => "dali" %>
+        <% end %>
+        <%= link_to highlight2 do %>
+        <%= image_tag highlight2.image, :class => "ruby" %>
+        <% end %>
       </li>
     <% end %>
     <% end %>
@@ -195,6 +200,9 @@ form.example::after {
   width: 50%;
 }
 
+.bhadwa {
+  padding-left: 50px;
+}
 .dali {
   height: 100px;
   width: 50%;
@@ -725,8 +733,12 @@ form.example::after {
   <% if highlight1.area == current_or_guest_user.search_area or highlight1.state == current_or_guest_user.search_state or highlight1.city == current_or_guest_user.search_city %>
   <% if highlight2.area == current_or_guest_user.search_area or highlight2.state == current_or_guest_user.search_state or highlight2.city == current_or_guest_user.search_city %>
       <li class="row">
+         <%= link_to highlight1 do %>
         <%= image_tag highlight1.image, :class => "dali" %>
+        <% end %>
+        <%= link_to highlight2 do %>
         <%= image_tag highlight2.image, :class => "ruby" %>
+        <% end %>
       </li>
     <% end %>
     <% end %>
