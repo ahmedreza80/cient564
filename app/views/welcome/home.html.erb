@@ -180,12 +180,10 @@ form.example::after {
   <% if highlight1.area == current_or_guest_user.search_area or highlight1.state == current_or_guest_user.search_state or highlight1.city == current_or_guest_user.search_city %>
   <% if highlight2.area == current_or_guest_user.search_area or highlight2.state == current_or_guest_user.search_state or highlight2.city == current_or_guest_user.search_city %>
       <li class="row">
-         <%= link_to highlight1 do %>
-        <%= image_tag highlight1.image, :class => "dali" %>
-        <% end %>
-        <%= link_to highlight2 do %>
-        <%= image_tag highlight2.image, :class => "ruby" %>
-        <% end %>
+       
+       <%= link_to_image(highlight1.image, highlight1, :class => "dali") %>
+       <%= link_to_image(highlight2.image, highlight2, :class => "ruby") %>
+        
       </li>
     <% end %>
     <% end %>
@@ -195,14 +193,18 @@ form.example::after {
 
 
 
+
+
+
+
 <style>
   .babes {
   width: 50%;
 }
-
 .bhadwa {
   padding-left: 50px;
 }
+
 .dali {
   height: 100px;
   width: 50%;
@@ -733,12 +735,10 @@ form.example::after {
   <% if highlight1.area == current_or_guest_user.search_area or highlight1.state == current_or_guest_user.search_state or highlight1.city == current_or_guest_user.search_city %>
   <% if highlight2.area == current_or_guest_user.search_area or highlight2.state == current_or_guest_user.search_state or highlight2.city == current_or_guest_user.search_city %>
       <li class="row">
-         <%= link_to highlight1 do %>
-        <%= image_tag highlight1.image, :class => "dali" %>
-        <% end %>
-        <%= link_to highlight2 do %>
-        <%= image_tag highlight2.image, :class => "ruby" %>
-        <% end %>
+       
+       <%= link_to_image(highlight1.image, highlight1, :class => "dali") %>
+       <%= link_to_image(highlight2.image, highlight2, :class => "ruby") %>
+        
       </li>
     <% end %>
     <% end %>

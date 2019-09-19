@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190824085420) do
+ActiveRecord::Schema.define(version: 20190919072459) do
 
   create_table "areas", force: :cascade do |t|
     t.string "name"
@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(version: 20190824085420) do
     t.string "city"
     t.string "state"
     t.string "area"
+    t.string "operating"
   end
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|

@@ -12,6 +12,7 @@ module Nearnew
     config.load_defaults 5.1
     config.i18n.load_path += Dir[root.join('config', 'locales', '**', '*.{rb,yml}')]
     config.assets.precompile += %w(rails_admin/rails_admin.css rails_admin/rails_admin.js)
+    
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
