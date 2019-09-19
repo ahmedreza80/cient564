@@ -35,17 +35,9 @@
   <body>
     <%= render 'layouts/header' %>
     <% if notice %>
-    <br>
-    <br>
-    <br>
-    <br>
   <p class="alert alert-success notice_wrapper"><%= notice %></p>
 <% end %>
 <% if alert %>
-<br>
-    <br>
-    <br>
-    <br>
   <p class="alert alert-danger notice_wrapper"><%= alert %></p>
 <% end %>
     <%= yield %>
