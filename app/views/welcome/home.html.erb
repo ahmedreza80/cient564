@@ -175,15 +175,13 @@ form.example::after {
 
 
 
-<ul class="bxslider bhadwa">
+<ul class="bxslider">
   <% @highlights.each_cons(2) do |highlight1, highlight2| %>
   <% if highlight1.area == current_or_guest_user.search_area or highlight1.state == current_or_guest_user.search_state or highlight1.city == current_or_guest_user.search_city %>
   <% if highlight2.area == current_or_guest_user.search_area or highlight2.state == current_or_guest_user.search_state or highlight2.city == current_or_guest_user.search_city %>
       <li class="row">
-       
-       <%= link_to_image(highlight1.image, highlight1, :class => "dali") %>
-       <%= link_to_image(highlight2.image, highlight2, :class => "ruby") %>
-        
+         <span><%= link_to( image_tag(highlight1.image, width: 170, :class => "dali"), highlight1) %></span>
+       <span> <%= link_to( image_tag(highlight2.image, width: 170, :class => "ruby"), highlight2) %></span>
       </li>
     <% end %>
     <% end %>
@@ -193,16 +191,9 @@ form.example::after {
 
 
 
-
-
-
-
 <style>
   .babes {
   width: 50%;
-}
-.bhadwa {
-  padding-left: 50px;
 }
 
 .dali {
@@ -735,10 +726,9 @@ form.example::after {
   <% if highlight1.area == current_or_guest_user.search_area or highlight1.state == current_or_guest_user.search_state or highlight1.city == current_or_guest_user.search_city %>
   <% if highlight2.area == current_or_guest_user.search_area or highlight2.state == current_or_guest_user.search_state or highlight2.city == current_or_guest_user.search_city %>
       <li class="row">
-       
-       <%= link_to_image(highlight1.image, highlight1, :class => "dali") %>
-       <%= link_to_image(highlight2.image, highlight2, :class => "ruby") %>
         
+        <span><%= link_to( image_tag(highlight1.image, width: 670, :class => "dali"), highlight1) %></span>
+       <span> <%= link_to( image_tag(highlight2.image, width: 670, :class => "ruby"), highlight2) %></span>
       </li>
     <% end %>
     <% end %>
@@ -753,12 +743,13 @@ form.example::after {
   }
 .dali {
   height: 100px;
-  width: 50%;
+
 }
+
 .ruby {
   height: 100px;
-  width: 50%;
 }
+
 .dodo {
   height: 30%;
   background-position: center;

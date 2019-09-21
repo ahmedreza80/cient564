@@ -291,24 +291,36 @@ body {
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
+      <% if @shop.imageshop? %>
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <% end %>
+      <% if @shop.imageshop? %>
       <li data-target="#myCarousel" data-slide-to="1"></li>
+      <% end %>
+      <% if @shop.imageshop? %>
       <li data-target="#myCarousel" data-slide-to="2"></li>
+      <% end %>
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
+      <% if @shop.imageshop? %>
       <div class="item active">
         <img src="<%= @shop.imageshop %>" alt="img-responsive" style="width:100%; height: 170px;">
       </div>
+      <% end %>
 
+      <% if @shop.imageshoptwo? %>
       <div class="item">
         <img src="<%= @shop.imageshoptwo %>" alt="img-responsive" style="width:100%; height: 170px;">
       </div>
-    
+      <% end %>
+
+      <% if @shop.imageshop? %>
       <div class="item">
         <img src="<%= @shop.imageshopthree %>" alt="img-responsive" style="width:100%; height: 170px;">
       </div>
+      <% end %>
     </div>
 
     <!-- Left and right controls -->

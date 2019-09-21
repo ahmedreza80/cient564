@@ -9,7 +9,7 @@ class Shop < ApplicationRecord
   has_many :order_notifications
 	has_many :comments, dependent: :destroy
   has_many :reviews
-	belongs_to :registeration_number, required: false
+	belongs_to :registeration_number, required: true
   scope :similar_shops, ->(shop) { where("id != ? and category = ? and area = ?", shop.id, shop.category, shop.area) }
 	acts_as_commontable
   acts_as_votable
