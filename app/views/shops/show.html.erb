@@ -277,17 +277,15 @@ body {
 
 </style>
 
-<div class="container">
-    <div class="row profile">
-    <div class="col-md-3">
-      <div class="profile-sidebar">
-        <!-- SIDEBAR USERPIC -->
-        <div class="profile-userpic">
 
 
 
 
+<body>
 
+  
+ 
+          <div class="container">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -333,62 +331,43 @@ body {
       <span class="sr-only">Next</span>
     </a>
   </div>
+</div>
+<hr>
+          <div class="details col-md-6">
+            <h3 class="product-title" style="font-size: 30px; font-weight: 400;"><%= @shop.name %></h3>
+    <div class="star-rating" style="top: 50px;" data-score= <%= @avg_review %> > <em style="font-size: 13px; color: #777777; font-weight: 400;"><%= "#{@reviews.length} reviews" %></em></div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        </div>
-        <!-- END SIDEBAR USERPIC -->
-        <!-- SIDEBAR USER TITLE -->
-        <div class="profile-usertitle">
-          <div class="profile-usertitle-name">
-            <%= @shop.name %>
-          </div>
-          <div class="profile-usertitle-job">
-            <%= @shop.category %>
-          </div>
-          <div class="profile-usertitle-job">
-            <div class="star-rating" data-score= <%= @avg_review %> ></div>
-          <em><%= "#{@reviews.length} reviews" %></em>
-          </div>
-        </div>
-        <!-- END SIDEBAR USER TITLE -->
-        <!-- SIDEBAR BUTTONS -->
-        <div class="profile-userbuttons">
-          <% if user_signed_in? %>
-          <%= button_to "Message", converstions_path(sender_id: current_user.id, recipient_id: @shop.user.id), :style=>'float:right;', class:"btn btn-danger btn-sm", method: "post"%>
+  <p style="font-size: 13px; color: #777777; font-weight: 400;"><%= @shop.category %></p>
+  </div>
+  <hr style="border:3px solid #f1f1f1">
+  <div id="exTab1" class="container"> 
+<ul  class="nav nav-pills" style="background-color: #fff; padding-left: 20px;">
+      <li class="active">
+        <a  href="#1a" data-toggle="tab">Overview</a>
+      </li>
+      <li><% if user_signed_in? %>
+        <a href="#" data-toggle="tab">
+          <%= button_to "Message", converstions_path(sender_id: current_user.id, recipient_id: @shop.user.id), :style=>'float:right; color:#', class:"tab", method: "post"%>
+        </a>
           <% else %>
          
           <a href="/users/sign_in" style="color: #fff;" class="btn btn-danger btn-sm">Message</a>
           <% end %>
-        </div>
-        <br>
-        <br>
-        <!-- END SIDEBAR BUTTONS -->
-        <!-- SIDEBAR MENU -->
-        <div class="profile-usermenu">
+      </li>
+      <li><a href="#3a" data-toggle="tab">Reviews</a>
+      </li>
+    </ul>
+    <hr style="border: 3px solid #f1f1f1;">
+
+      <div class="tab-content clearfix">
+        <div class="tab-pane active" id="1a">
+        
+          <div class="profile-usermenu">
           <ul class="nav">
             <li class="active">
               <a href="#" data-toggle="collapse" data-target="#demo">
               <i class="glyphicon glyphicon-home"></i>
-              Overview </a>
+              About Shop </a>
               <div id="demo" class="collapse">
                 <%= @shop.description %>
               </div>
@@ -420,12 +399,7 @@ body {
           <% end %>
         </li>
 
-
-
-            <% if current_user == @shop.user %>
-          <%= link_to "Edit Your Shop", edit_shop_path(@shop) %>
-          <% end %>
-            <li>
+            <li style="padding-left: 13px;">
               <div class="dropdown">
                 <a href="#" type="button" data-toggle="dropdown">
                   <i class="glyphicon glyphicon-flag"></i>More Info<span class="caret"></span> </a>
@@ -448,15 +422,70 @@ body {
 
   </div>
             </li>
+            <% if current_user == @shop.user %>
+          <%= link_to "Edit Your Shop", edit_shop_path(@shop) %>
+          <% end %>
             
           </ul>
         </div>
         <!-- END MENU -->
-      </div>
-    </div>
-
+        </div>
+       
+        <div class="tab-pane" id="3a">
+          <div class="container">
+         <% if @reviews.blank? %>
+            <h3>No reviews just yet, would you like to add the first!</h3>
+            <%= link_to "Write Review",  new_shop_review_path(@shop), :style=> 'color:#FFFFFF;', class: "btn btn-danger" %>
+          <% else %>
+          <%= link_to "Write Review",  new_shop_review_path(@shop), class: "btn btn-danger" %>
+          <br>
+          <br>
+            <% @reviews.each do |review| %>
+            <div class="card">
+              <div class="col-md-10 col-sm-10">
+              <div class="panel panel-default arrow left">
+                <div class="panel-body">
+                  <header class="text-left">
+                    <div class="comment-user"><i class="fa fa-user"></i> Nearclick User</div>
+                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> <%= review.created_at.strftime("%B %d %Y, %l:%M%P") %></time>
+                  </header>
+                  <hr>
+                  <div class="comment-post">
+                    <p>
+                      <div class="reviews">
+                <div class="star-rating" data-score= <%= review.rating %> ></div>
+                <p><%= review.comment %></p>
+              </div>
+                    </p>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+            <% end %>
+            <% end %>
   </div>
-</div>
+
+            <script>
+      $('.star-rating').raty({
+        path: '/assets/',
+        readOnly: true,
+        score: function() {
+              return $(this).attr('data-score');
+      }
+    });
+  </script>
+  </div>
+        </div>
+        
+      </div>
+   
+          
+    <hr style="border:3px solid #f1f1f1">
+    
+  </body>
+</html>
 
         <!--================End Home Banner Area =================-->
         <% if @shop.business == "Products Based Business" %>
@@ -888,77 +917,7 @@ body {
 <hr>
 
 
-<section class="welcome_area p_120" style="padding: 10px;">
-          <div class="container">
-            <div class="row welcome_inner">
-              <div class="col-lg-6">
-                <div class="welcome_text">
-                  <h4>About <%= @shop.name %></h4>
-                  <p><%= @shop.description %></p>
-                  <div class="row">
-                    
-                    <div class="col-md-12">
-                      <div class="wel_item">
-                        <i class="lnr lnr-star"></i> <i class="lnr lnr-star"></i> <i class="lnr lnr-star"></i>
-                        <h4><%= "#{@reviews.length}" %></h4>
-                        <p> <%= "#{@reviews.length}" %> User have reviewd this business.</p>
-                      </div>
-                    </div>
-                   
-                  </div>
-                </div>
-              </div>
 
-
-
-
-              <div class="col-lg-6">
-                <span class="heading">User Rating</span>
-<p> Rating based on <em><%= "#{@reviews.length} reviews" %></em>.</p>
-<hr style="border:3px solid #f1f1f1">
-
-
-<% if @reviews.blank? %>
-            <h3>No reviews just yet, would you like to add the first!</h3>
-            <%= link_to "Write Review",  new_shop_review_path(@shop), class: "btn btn-danger" %>
-          <% else %>
-          <%= link_to "Write Review",  new_shop_review_path(@shop), class: "btn btn-danger" %>
-          <br>
-          <br>
-            <% @reviews.each do |review| %>
-              <div class="col-md-10 col-sm-10">
-              <div class="panel panel-default arrow left">
-                <div class="panel-body">
-                  <header class="text-left">
-                    <div class="comment-user"><i class="fa fa-user"></i> Nearclick User</div>
-                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> <%= review.created_at.strftime("%B %d %Y, %l:%M%P") %></time>
-                  </header>
-                  <hr>
-                  <div class="comment-post">
-                    <p>
-                      <div class="reviews">
-                <div class="star-rating" data-score= <%= review.rating %> ></div>
-                <p><%= review.comment %></p>
-              </div>
-                    </p>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-            <% end %>
-            <% end %>
-
-
-
-
-
-
-
-              </div>
-            </div>
-          </div>
-        </section>
        <script>
       $('.star-rating').raty({
         path: '/assets/',
@@ -2713,3 +2672,4 @@ h1.t-button {
 }
 }
   </style>
+

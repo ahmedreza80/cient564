@@ -88,13 +88,46 @@
 
   <p style="font-size: 13px; color: #777777; font-weight: 400;"><%= @product.category %></p>
   </div>
+
+
+
+  <hr>
+  <% if @product.offerprice? %>
+          <div class="pr-single">
+          <h2 class="reduced " style="font-size: 14px;"><del style="padding-right: 4px;">₹.<%= @product.price %></del>₹<%= @product.offerprice %></h2>
+        </div>
+
+             <p class="hello"><img src="/assets/offer.png"><strong><%= number_to_percentage(@product.percentage_off, :precision => 2) %></strong> Off</p>
+            <% else %>
+            <div class="pr-single">
+          <p class="reduced ">₹<%= @product.price %></p>
+        </div>
+            <% end %>
+            
+            <p style="font-size: 10px;">Sold By:<span> <%= @product.shop.name %></span></p>
+            <% if @product.gst? %>
+            <div class="action">
+              <%= form_tag order_items_path do %>
+        <%= hidden_field_tag :product_id, @product.id %>
+       
+        <%= number_field_tag :quantity, 1, style:'background-color:#fff;' %>
+        <div class="ju"></div>
+              <button class="add-to-cart btn btn-default" style="padding:10; margin:0;" type="submit">add to cart</button>
+              <% end %>
+              <!-- <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button> -->
+            </div>
+            <% else %>
+            <div class="action">
+              <button class="add-to-cart btn btn-default" style="padding:10; margin:0;"><a href="tel:<%= @product.phone %>">Call Now</a></button>
+            </div>
+            <% end %>
   <hr style="border:3px solid #f1f1f1">
   <div id="exTab1" class="container"> 
 <ul  class="nav nav-pills" style="background-color: #fff; padding-left: 20px;">
       <li class="active">
         <a  href="#1a" data-toggle="tab">Products</a>
       </li>
-      <li><a href="#2a" data-toggle="tab">Pricing</a>
+      <li><a href="#2a" data-toggle="tab">Specification</a>
       </li>
       <li><a href="#3a" data-toggle="tab">Reviews</a>
       </li>
