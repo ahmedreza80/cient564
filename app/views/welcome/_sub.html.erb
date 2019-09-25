@@ -932,15 +932,10 @@
 <script>
         $(window).scroll(function() {
             // 100 = The point you would like to fade the nav in.
-
             if ($(window).scrollTop() > 100) {
-
                 $('.fixed').addClass('is-sticky');
-
             } else {
-
                 $('.fixed').removeClass('is-sticky');
-
             };
         });
         var selectedCity;
@@ -953,6 +948,7 @@
           } else {
            // Send the request and update city dropdown
             getCitiesOfState(id_value_string)
+            
            
           }
         });
@@ -960,12 +956,12 @@
           e.preventDefault()
           var $this = $(this);
           var $href = $this.attr("href");
-          var state = $("#state").val()
-          var city = $("#city").val()
+          var state = $("#state").val();
+          var city = $("#city").val();
+          var area = $("#area").val();
           var search = $("#search").val()
-          window.location = $href + '?search=' + search+ "&state=" +state+ "&city="+ city
-        })
-        function getCitiesOfState(val){
+          window.location = $href + '?search=' + search+ "&state=" +state+ "&city="+ city+ "&area=" +area
+        })        function getCitiesOfState(val){
         $.ajax({
           dataType: "json",
           cache: false,
@@ -982,7 +978,6 @@
            $("select#city option").remove();
            //put in a empty default line
            // Fill city select
-
            var row = "<option value=\"" + "" + "\">" + "Select a city" + "</option>";
            $(row).appendTo("select#city");
            $.each(data, function(i, j) {
@@ -1036,7 +1031,6 @@
            $("select#area option").remove();
            //put in a empty default line
            // Fill city select
-
            var row = "<option value=\"" + "" + "\">" + "Select a area" + "</option>";
            $(row).appendTo("select#area");
            $.each(data, function(i, j) {
