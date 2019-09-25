@@ -34,6 +34,9 @@
 		<a href="<%=registeration_number_orders_path(number.id)%>"><p><%= i %>. <%= number.code %></p></a>
 		<hr>	
 	<% end %>
+  <% @shops.each do |shop| %>
+        <li><a href="#"><%= shop.id %> :<%= shop.name %></a></li>
+        <% end %>
         <td><%= form_with(model: RegisterationNumber.new, local: true) do |form| %>
 	 
 	  <div class="actions">
