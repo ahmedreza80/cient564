@@ -391,7 +391,7 @@ function closeNav() {
 }
 </script>
 
-     <script>
+      <script>
         $(window).scroll(function() {
             // 100 = The point you would like to fade the nav in.
             if ($(window).scrollTop() > 100) {
@@ -403,6 +403,7 @@ function closeNav() {
         var selectedCity;
         $("select#state").change(function() {
           var id_value_string = $(this).val();
+          console.log('id___________________', id_value_string);
           if (id_value_string == "") {
            $("select#city option").remove();
            var row = "<option value=\"" + "" + "\">" + "city" + "</option>";
@@ -412,7 +413,16 @@ function closeNav() {
             getCitiesOfState(id_value_string)
            
           }
-        });
+         });
+        $(".search-btn").on("click", function(e){
+          e.preventDefault()
+          var $this = $(this);
+          var $href = $this.attr("href");
+          var state = $("#state").val()
+          var city = $("#city").val()
+          var search = $("#search").val()
+          window.location = $href + '?search=' + search+ "&state=" +state+ "&city="+ city+ "&area=" +area
+        })
         function getCitiesOfState(val){
         $.ajax({
           dataType: "json",
@@ -426,6 +436,7 @@ function closeNav() {
            alert("Failed to submit : " + errorTextStatus + " ;" + error);
           },
           success: function(data) {
+              console.log('a___________________', data);
            // Clear all options from city select
            $("select#city option").remove();
            //put in a empty default line
@@ -443,6 +454,7 @@ function closeNav() {
           }
          });
         }
+        // on change city get area
         var selectedArea;
         $("select#city").change(function() {
           var city_id = $(this).val();
@@ -456,7 +468,16 @@ function closeNav() {
            
           }
         });
-        
+        $(".search-btn").on("click", function(e){
+          e.preventDefault()
+          var $this = $(this);
+          var $href = $this.attr("href");
+          var state = $("#state").val();
+          var city = $("#city").val();
+          var area = $("#area").val();
+          var search = $("#search").val()
+          window.location = $href + '?search=' + search+ "&state=" +state+ "&city="+ city+ "&area=" +area
+        })
         function getAreasOfCity(val){
         $.ajax({
           dataType: "json",
@@ -486,17 +507,6 @@ function closeNav() {
            });
           }
          });
-
-        $(".search-btn").on("click", function(e){
-          e.preventDefault()
-          var $this = $(this);
-          var $href = $this.attr("href");
-          var state = $("#state").val();
-          var city = $("#city").val();
-          var area = $("#area").val();
-          var search = $("#search").val()
-          window.location = $href + '?search=' + search+ "&state=" +state+ "&city="+ city+ "&area=" +area
-        })
         }
     </script>
 </body>
