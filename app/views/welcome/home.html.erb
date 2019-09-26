@@ -612,14 +612,13 @@ form.example::after {
     <% if highlight1.area == current_or_guest_user.search_area or highlight1.state == current_or_guest_user.search_state or highlight1.city == current_or_guest_user.search_city %>
     <div>
       <li class="row" style="padding: 0px; margin: 0px;">
-        <%= link_to image_tag(highlight1.image), highlight1, :class => "dali" %>
-        <%= link_to image_tag(highlight2.image), highlight2, :class => "dali" %>
+        <%= image_tag highlight1.image, :class => "dali" %>
+        <%= image_tag highlight2.image, :class => "dali" %>
       </li>
     </div>
     
     <% end %>
   <% end %>
-  
   </div>
 
 <style>
