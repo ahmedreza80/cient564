@@ -12,7 +12,7 @@
     // GENERAL
     mode: 'horizontal',
     slideSelector: '',
-    infiniteLoop: false,
+    infiniteLoop: true,
     hideControlOnEnd: false,
     speed: 500,
     easing: null,
@@ -66,7 +66,7 @@
     autoControlsSelector: null,
 
     // AUTO
-    auto: false,
+    auto: true,
     pause: 4000,
     autoStart: true,
     autoDirection: 'next',
