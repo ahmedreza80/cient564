@@ -8,6 +8,7 @@ Author: Surjith S M
    ============================================================== */
 body {
   font-family: 'Roboto', sans-serif; }
+  
 
 h1 {
   font-size: 72px;
@@ -159,12 +160,12 @@ background: #252a33;}
   font-size: 14px;
   padding: 0 8px 0 0; }
 
-.slider {
+.sliderb {
   background: url(../assets/slider.jpg) no-repeat;
   background-size: cover;
   min-height: 350px; }
   @media (max-width: 992px) {
-    .slider {
+    .sliderb {
       min-height: 250px; } }
 
 .btn-outline-light {

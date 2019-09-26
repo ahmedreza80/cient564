@@ -9244,12 +9244,7 @@ if(b.numberStep){var c=this.each(function(){this._animateNumberSetter=b.numberSt
         }).get());
       }
 
-      if (slider.viewport.css('box-sizing') === 'border-box') {
-        height += parseFloat(slider.viewport.css('padding-top')) + parseFloat(slider.viewport.css('padding-bottom')) +
-              parseFloat(slider.viewport.css('border-top-width')) + parseFloat(slider.viewport.css('border-bottom-width'));
-      } else if (slider.viewport.css('box-sizing') === 'padding-box') {
-        height += parseFloat(slider.viewport.css('padding-top')) + parseFloat(slider.viewport.css('padding-bottom'));
-      }
+    
 
       return height;
     };

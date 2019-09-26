@@ -34,7 +34,7 @@
     </style>
   <body>
     <%= render 'layouts/header' %>
-      <%= render 'welcome/loc' %>
+
     <% if notice %>
   <p class="alert alert-success notice_wrapper"><%= notice %></p>
 <% end %>
@@ -42,6 +42,7 @@
   <p class="alert alert-danger notice_wrapper"><%= alert %></p>
 <% end %>
     <%= yield %>
+    <%= render 'welcome/loc' %>
     <%= render 'layouts/footer' %>
   <style>
     .notice_wrapper {
