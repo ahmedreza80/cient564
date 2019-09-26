@@ -176,7 +176,11 @@ form.example::after {
 
 
 
-<div class="slider">
+
+            
+
+    <section class="section-division mb-1">
+      <div class="slider">
   <% @highlights.each_cons(2) do |highlight1, highlight2| %>
     <% if highlight1.area == current_or_guest_user.search_area or highlight1.state == current_or_guest_user.search_state or highlight1.city == current_or_guest_user.search_city %>
     <div>
@@ -214,9 +218,6 @@ form.example::after {
 }
 
 </style>
-            
-
-    <section class="section-division mb-1">
     <div class="container my-1">
       <div class="row">
         <div class="col col-sm-6">
