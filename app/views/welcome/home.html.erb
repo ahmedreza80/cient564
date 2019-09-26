@@ -1,6 +1,6 @@
 <script>
     $(document).ready(function(){
-      $('.slider').bxSlider();
+      $('.bxslider').bxSlider();
     });
   </script>
 
@@ -175,7 +175,7 @@ form.example::after {
     </section>
 
 
-<div class="slider">
+<div class="bxslider">
   <% @highlights.each_cons(2) do |highlight1, highlight2| %>
     <% if highlight1.area == current_or_guest_user.search_area or highlight1.state == current_or_guest_user.search_state or highlight1.city == current_or_guest_user.search_city %>
     <div class="glare">
@@ -605,7 +605,7 @@ form.example::after {
     <!--//END HEADER -->
     <!--============================= FIND PLACES =============================-->
 
-<div class="slider">
+<div class="bxslider">
   <% @highlights.each_cons(2) do |highlight1, highlight2| %>
     <% if highlight1.area == current_or_guest_user.search_area or highlight1.state == current_or_guest_user.search_state or highlight1.city == current_or_guest_user.search_city %>
     <div>
