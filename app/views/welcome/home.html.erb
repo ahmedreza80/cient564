@@ -176,43 +176,43 @@ form.example::after {
 
 
 
-<ul class="bxslider">
+<div class="slider">
   <% @highlights.each_cons(2) do |highlight1, highlight2| %>
-  <% if highlight1.area == current_or_guest_user.search_area or highlight1.state == current_or_guest_user.search_state or highlight1.city == current_or_guest_user.search_city %>
-  <% if highlight2.area == current_or_guest_user.search_area or highlight2.state == current_or_guest_user.search_state or highlight2.city == current_or_guest_user.search_city %>
-      <li class="row">
-         <span><%= link_to( image_tag(highlight1.image, width: 170, :class => "dali"), highlight1) %></span>
-       <span> <%= link_to( image_tag(highlight2.image, width: 170, :class => "ruby"), highlight2) %></span>
+    <% if highlight1.area == current_or_guest_user.search_area or highlight1.state == current_or_guest_user.search_state or highlight1.city == current_or_guest_user.search_city %>
+    <div>
+      <li class="row" style="padding: 0px; margin: 0px;">
+        <%= link_to image_tag(highlight1.image), highlight1, :class => "dali" %>
+        <%= link_to image_tag(highlight2.image), highlight1, :class => "dali" %>
       </li>
-    <% end %>
+    </div>
+    
     <% end %>
   <% end %>
-</ul>
-
-
-
+  </div>
 
 <style>
-  .babes {
-  width: 50%;
-}
 
 .dali {
   height: 100px;
   width: 50%;
 }
-    .button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
+.boti {
+  background-size: cover;
+  width: 160px;
 }
+
+
+.dodo {
+  height: 30%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.bhadwa {
+  padding-left: 50px;
+}
+
 </style>
             
 
@@ -612,8 +612,8 @@ form.example::after {
     <% if highlight1.area == current_or_guest_user.search_area or highlight1.state == current_or_guest_user.search_state or highlight1.city == current_or_guest_user.search_city %>
     <div>
       <li class="row" style="padding: 0px; margin: 0px;">
-        <%= image_tag highlight1.image, :class => "dali" %>
-        <%= image_tag highlight2.image, :class => "dali" %>
+        <%= link_to image_tag(highlight1.image), highlight1, :class => "dali" %>
+        <%= link_to image_tag(highlight2.image), highlight1, :class => "dali" %>
       </li>
     </div>
     
