@@ -8,6 +8,7 @@ class WelcomeController < ApplicationController
   def home
     @highlights = Highlight.all
     @banners = Banner.all
+    @notifications = OrderNotification.where(shop_id: current_user.shop.id)
   end
   def bookmarks
     @liked_products = current_user.get_up_voted(Product)

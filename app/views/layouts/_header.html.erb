@@ -457,8 +457,30 @@ function closeNav() {
     <% if current_user&.present? %>
    <%= link_to fa_icon('comment-dots', text: "My Inbox"), converstions_path %>
 <% end %>
-<% if current_user&.shop %>
-   <%= link_to fa_icon('bell', text: "Order Notifications"), order_notification_index_path %>
+   <% if current_user&.shop %>
+   <% if @notifications.present?%>
+<div class="flex-container">
+  <div><%= link_to fa_icon('bell', text: "Order Notifications"), order_notification_index_path %></div>
+  <div class="bit">1</div>
+</div>
+   
+   
+   <style>
+.bit {
+  height: 15px;
+  width: 15px;
+  background-color: red;
+  color: #fff;
+  border-radius: 60%;
+  display: inline-block;
+  padding-left: 3px;
+}
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+</style>
+<% end %>
 <% end %>
   <% if current_user&.shop %>
    <%= link_to fa_icon('cogs', text: "Manage Shop"), current_user.shop %>
@@ -638,9 +660,34 @@ function closeNav() {
    <%= link_to fa_icon('comment-dots', text: "My Inbox"), converstions_path %>
 <% end %>
    <% if current_user&.shop %>
-   <%= link_to fa_icon('bell', text: "Order Notifications"), order_notification_index_path %>
    <% if @notifications.present?%>
-   <b style="color: #fff;">Hello</b>
+
+
+
+
+
+
+<div class="flex-container">
+  <div><%= link_to fa_icon('bell', text: "Order Notifications"), order_notification_index_path %></div>
+  <div class="bit">1</div>
+</div>
+   
+   
+   <style>
+.bit {
+  height: 15px;
+  width: 15px;
+  background-color: red;
+  color: #fff;
+  border-radius: 60%;
+  display: inline-block;
+  padding-left: 3px;
+}
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+</style>
 <% end %>
 <% end %>
   <% if current_user&.shop %>
