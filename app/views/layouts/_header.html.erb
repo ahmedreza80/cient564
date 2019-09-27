@@ -639,7 +639,9 @@ function closeNav() {
 <% end %>
    <% if current_user&.shop %>
    <%= link_to fa_icon('bell', text: "Order Notifications"), order_notification_index_path %>
-
+   <% if @notifications.present?%>
+   <b style="color: #fff;">Hello</b>
+<% end %>
 <% end %>
   <% if current_user&.shop %>
    <%= link_to fa_icon('cogs', text: "Manage Shop"), current_user.shop %>
