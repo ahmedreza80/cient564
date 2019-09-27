@@ -55,14 +55,14 @@ class ShopsController < ApplicationController
         end
       else    
         respond_to do |format|
-          format.html { redirect_to new_shop_path, notice: 'Shop was successfully created.'  }
-          format.json { render json: {registeration: "Registeration Number not foud"}, status: :unprocessable_entity }
+          format.html { redirect_to new_shop_path, notice: 'Please check registeration number.'  }
+          format.json { render json: {registeration: "Registeration Number not found"}, status: :unprocessable_entity }
         end
       end
     else
       respond_to do |format|
-        format.html { redirect_to new_shop_path, notice: 'Shop was successfully created.'   }
-        format.json { render json: {registeration: "Registeration Number not foud"}, status: :unprocessable_entity }
+        format.html { redirect_to new_shop_path, notice: 'Registeration number not found.'   }
+        format.json { render json: {registeration: "Registeration Number not found"}, status: :unprocessable_entity }
       end
     end
   end
