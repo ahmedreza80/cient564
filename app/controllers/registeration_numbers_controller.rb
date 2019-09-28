@@ -1,6 +1,5 @@
 class RegisterationNumbersController < ApplicationController
 	before_action :check_agent
-	before_action :check_rn_belongs_to_right_agent
 
 	def new
 
@@ -8,7 +7,6 @@ class RegisterationNumbersController < ApplicationController
 
 	def index
 		@numbers = current_user.registeration_numbers
-		@shops = @rn.shops
 	end
 
 	def create
@@ -23,9 +21,5 @@ class RegisterationNumbersController < ApplicationController
 	private
 	def check_agent
 		current_user && current_user.is_agent?
-	end
-	def check_rn_belongs_to_right_agent
-		@rn = RegisterationNumber.includes([:shops => [:products => [:items]]]).find(params[:registeration_number_id])
-		redirect_to "/" if !(current_user && @rn.user.id  == current_user.id)
 	end
 end

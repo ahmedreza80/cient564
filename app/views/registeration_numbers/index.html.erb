@@ -7,10 +7,10 @@
 
 
 <div class="container" style="margin-top: 100px">
-	<h3 style="text-align:center;">Generate Shop Code</h3>
-	<br>
-	<br>
-</div>	
+  <h3 style="text-align:center;">Generate Shop Code</h3>
+  <br>
+  <br>
+</div>  
 
 
 
@@ -19,8 +19,8 @@
 
 <div class="container">
   <% @numbers.each.with_index(1) do |number,i| %>
-		
-	<% end %>          
+    
+  <% end %>          
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -31,21 +31,18 @@
     <tbody>
       <tr>
         <td><% @numbers.each.with_index(1) do |number,i| %>
-		<a href="<%=registeration_number_orders_path(number.id)%>"><p><%= i %>. <%= number.code %></p></a>
-		<hr>	
-	<% end %>
-  <% @shops.each do |shop| %>
-        <li><a href="#"><%= shop.id %> :<%= shop.name %></a></li>
-        <% end %>
+    <a href="<%=registeration_number_orders_path(number.id)%>"><p><%= i %>. <%= number.code %></p></a>
+    <hr>  
+  <% end %>
         <td><%= form_with(model: RegisterationNumber.new, local: true) do |form| %>
-	 
-	  <div class="actions">
-	    <%= form.submit "Generate Code", style: 'font-size:20px;'%>
+   
+    <div class="actions">
+      <%= form.submit "Generate Code", style: 'font-size:20px;'%>
       <br>
       <br>
       <a href="/highlights/new" class="btn-form text-centre" style="font-size:10px; color: #fff;">Add Highlights<i class="pe-7s-angle-right"></i></a>
-	  </div>
-	<% end %></td>
+    </div>
+  <% end %></td>
         
       </tr>
     </tbody>
